@@ -1,7 +1,7 @@
-package de.neuefische.backend.Service;
+package de.neuefische.backend.service;
 
-import de.neuefische.backend.Model.Animals;
-import de.neuefische.backend.Repository.RepoAnimals;
+import de.neuefische.backend.model.Animals;
+import de.neuefische.backend.repository.RepoAnimals;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

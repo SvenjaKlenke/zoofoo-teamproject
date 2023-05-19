@@ -1,6 +1,5 @@
-package de.neuefische.backend.Repository;
-import de.neuefische.backend.Model.Animals;
-import lombok.Data;
+package de.neuefische.backend.repository;
+import de.neuefische.backend.model.Animals;
 import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.HashMap;
