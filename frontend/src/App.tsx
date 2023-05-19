@@ -1,24 +1,30 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {Route, Routes} from "react-router-dom";
+import AnimalGallery from "./AnimalGallery/AnimalGallery";
+import axios from "axios";
+import {Animal} from "./AnimalCard/AnimalCard";
 
 function App() {
+
+    const [animalList, setAnimalList] = useState<Animal[]>([])
+
+    function getAllAnimals() {
+        axios.get("api/animal")
+            .then((response)=> {
+                setAnimalList(response.data)
+                })
+    }
+    useEffect(getAllAnimals, [])
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <Routes>
+          <Route path={"/"} element={<AnimalGallery animals={animalList}/>}/>
+      </Routes>
     </div>
   );
 }
