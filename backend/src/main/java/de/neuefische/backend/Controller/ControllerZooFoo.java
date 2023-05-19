@@ -1,8 +1,14 @@
 package de.neuefische.backend.Controller;
 
-import org.springframework.web.bind.annotation.RestControllerAdvice;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@RestControllerAdvice
+
+@RestController
+@RequestMapping("")
+@RequiredArgsConstructor
+
 public class ControllerZooFoo {
 
 }
