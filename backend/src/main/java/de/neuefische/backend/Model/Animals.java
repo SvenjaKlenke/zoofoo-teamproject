@@ -12,10 +12,10 @@ public class Animals {
     private String species;
     private String food;
     private int foodAmount;
-    private String dayToFeed; //todo: ENUM
+    private String dayToFeed;
     private int numberOfAnimals;
     private String feedStatus;
-    private String animalKeeper; //todo: ENUM
+    private String animalKeeper;
     private String pictureOfAnimal;
 
 }
