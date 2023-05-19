@@ -8,11 +8,11 @@ type Props = {
 
 export type Animal = {
     id:string;
-    image:string;
-    animalSpecies:string;
+    pictureOfAnimal:string;
+    species:string;
     numberOfAnimals:number;
-    keeper:string;
-    feedingStatus:string;
+    animalKeeper:string;
+    feedStatus:string;
     food:string;
     foodAmount:number;
 }
@@ -21,8 +21,8 @@ function AnimalCard(props:Props) {
 
     return (
         <div className="AnimalCard">
-            <img src={props.animals.image} alt={"animal picture"}></img>
-            <h2>{props.animals.animalSpecies}</h2>
+            <img src={props.animals.pictureOfAnimal} alt={"animal picture"}></img>
+            <h2>{props.animals.species}</h2>
             <p>{props.animals.numberOfAnimals}</p>
         </div>
     );
