@@ -21,7 +21,7 @@ function AnimalCard(props:Props) {
 
     return (
         <div className="AnimalCard">
-            <img src={props.animals.image} alt={"anmial picture"}></img>
+            <img src={props.animals.image} alt={"animal picture"}></img>
             <h2>{props.animals.animalSpecies}</h2>
             <p>{props.animals.numberOfAnimals}</p>
         </div>
