@@ -22,7 +22,31 @@ class ControllerZooFooTest {
     void getAllAnimals_returnAllAnimalsAsList_andStatusCode200() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/animal"))
                 .andExpect(status().isOk())
-                .andExpect(content().json("[]"));
+                .andExpect(content().json("""
+                           [{
+                                   "id": "1",
+                                   "species": "Elephant",
+                                   "food": "fruit",
+                                   "foodAmount": 10,
+                                   "dayToFeed": "Monday",
+                                   "numberOfAnimals": 3,
+                                   "feedStatus": "open",
+                                   "animalKeeper": "Amelie",
+                                   "pictureOfAnimal": ""
+                           }, 
+                           {
+                                   "id": "2",
+                                   "species": "Giraffe",
+                                   "food": "fruit",
+                                   "foodAmount": 9,
+                                   "dayToFeed": "Wednesday",
+                                   "numberOfAnimals": 4,
+                                   "feedStatus": "open",
+                                   "animalKeeper": "Svenja",
+                                   "pictureOfAnimal": ""
+                               }
+                           ]
+                        """));
 
     }
 
