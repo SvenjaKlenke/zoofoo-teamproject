@@ -9,10 +9,9 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-
 public class ServiceFeeding {
-    private final RepoAnimals repoAnimals;
 
+    private final RepoAnimals repoAnimals;
 
     public List<Animals> getAllAnimals() {
         return repoAnimals.getAllAnimals();

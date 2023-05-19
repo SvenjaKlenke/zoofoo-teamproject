@@ -9,12 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-
 @RestController
 @RequestMapping("api")
 @RequiredArgsConstructor
-
-
 public class ControllerZooFoo {
     private final ServiceFeeding serviceFeeding;
 
@@ -22,6 +19,4 @@ public class ControllerZooFoo {
     public List<Animals> getAllAnimals() {
         return serviceFeeding.getAllAnimals();
     }
-
-
 }

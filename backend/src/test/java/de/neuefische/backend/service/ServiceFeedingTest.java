@@ -10,9 +10,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 class ServiceFeedingTest {
-RepoAnimals repoAnimals = mock(RepoAnimals.class);
-    Animals animals1 = new Animals("1", "Elephant", "fruit", 10, "Monday", 3, "open", "Amelie", "");
 
+    RepoAnimals repoAnimals = mock(RepoAnimals.class);
+    Animals animals1 = new Animals("1", "Elephant", "fruit", 10, "Monday", 3, "open", "Amelie", "");
     ServiceFeeding serviceFeeding = new ServiceFeeding(repoAnimals);
     @Test
     void getAllAnimals_shouldReturnAListOfAllAnimals() {
