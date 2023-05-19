@@ -1,12 +1,7 @@
 package de.neuefische.backend.Repository;
-
 import de.neuefische.backend.Model.Animals;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,7 +9,7 @@ import java.util.Map;
 
 @Repository
 @Data
-@AllArgsConstructor
+
 
 public class RepoAnimals {
 /*    Animals animals1 = new Animals("1", "Elephant", "fruit", 10, "Monday", 3, "open", "Amelie", "");
