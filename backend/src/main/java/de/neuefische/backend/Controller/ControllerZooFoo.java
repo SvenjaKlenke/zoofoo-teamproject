@@ -11,12 +11,12 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("api/")
+@RequestMapping("api")
 @RequiredArgsConstructor
 
 public class ControllerZooFoo {
     private final ServiceFeeding serviceFeeding;
-    @GetMapping("animal")
+    @GetMapping("/animal")
     public List<Animals> getAllAnimals() {
         return serviceFeeding.getAllAnimals();
     }
