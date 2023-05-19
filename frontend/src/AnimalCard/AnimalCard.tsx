@@ -1,20 +1,9 @@
 import React from 'react';
 import "./AnimalCard.css";
-import exp from "constants";
+import {Animal} from "../model/AnimalModel";
 
 type Props = {
     animals: Animal
-}
-
-export type Animal = {
-    id:string;
-    pictureOfAnimal:string;
-    species:string;
-    numberOfAnimals:number;
-    animalKeeper:string;
-    feedStatus:string;
-    food:string;
-    foodAmount:number;
 }
 
 function AnimalCard(props:Props) {
