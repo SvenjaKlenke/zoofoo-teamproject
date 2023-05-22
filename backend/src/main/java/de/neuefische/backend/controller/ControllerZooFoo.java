@@ -13,6 +13,7 @@ import java.util.List;
 @RequestMapping("api")
 @RequiredArgsConstructor
 public class ControllerZooFoo {
+
     private final ServiceFeeding serviceFeeding;
 
     @GetMapping("/animal")
