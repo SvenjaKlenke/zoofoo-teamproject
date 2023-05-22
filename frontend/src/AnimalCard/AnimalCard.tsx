@@ -10,9 +10,9 @@ function AnimalCard(props:Props) {
 
     return (
         <div className="AnimalCard">
-            <img src={props.animals.pictureOfAnimal} alt={"animal picture"}></img>
+            <img src={props.animals.pictureOfAnimal} alt={"animal"}></img>
             <h2>{props.animals.species}</h2>
-            <p>{props.animals.numberOfAnimals}</p>
+            <p>Amount: {props.animals.numberOfAnimals}</p>
         </div>
     );
 }

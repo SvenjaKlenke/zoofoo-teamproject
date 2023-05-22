@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {Route, Routes} from "react-router-dom";
 import AnimalGallery from "./AnimalGallery/AnimalGallery";
 import axios from "axios";
-import {Animal} from "./AnimalCard/AnimalCard";
+import {Animal} from "./model/AnimalModel";
+import logo from "./logo.svg";
+
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
 
     function getAllAnimals() {
         axios.get("api/animal")
-            .then((response)=> {
+            .then((response) => {
                 setAnimalList(response.data)
                 })
     }
@@ -20,11 +21,16 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
-      <Routes>
-          <Route path={"/"} element={<AnimalGallery animals={animalList}/>}/>
-      </Routes>
+        <header className="App-header">
+            <img id="logo" src={logo}/>
+            <ul>
+                <li>Feeding</li>
+                <li>Order</li>
+            </ul>
+        </header>
+        <Routes>
+            <Route path={"/"} element={<AnimalGallery animals={animalList}/>}/>
+        </Routes>
     </div>
   );
 }
