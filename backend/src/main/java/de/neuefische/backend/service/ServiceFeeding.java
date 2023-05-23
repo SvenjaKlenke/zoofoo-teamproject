@@ -14,6 +14,6 @@ public class ServiceFeeding {
     private final RepoAnimals repoAnimals;
 
     public List<Animals> getAllAnimals() {
-        return repoAnimals.getAllAnimals();
+        return repoAnimals.findAll();
     }
 }
