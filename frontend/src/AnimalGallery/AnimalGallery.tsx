@@ -1,7 +1,7 @@
 import React from 'react';
 import "./AnimalGallery.css";
 import {Animal} from "../model/AnimalModel";
-import AnimalCard from "../animalCard/AnimalCard";
+import AnimalCard from "../AnimalCard/AnimalCard";
 
 
 type Props = {

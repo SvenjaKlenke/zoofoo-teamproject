@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Route, Routes} from "react-router-dom";
-import AnimalGallery from "./animalGallery/AnimalGallery";
+import AnimalGallery from "./AnimalGallery/AnimalGallery";
 import axios from "axios";
 import {Animal} from "./model/AnimalModel";
 import logo from "./logo.svg";
