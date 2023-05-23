@@ -1,6 +1,7 @@
 package de.neuefische.backend.service;
 
-import de.neuefische.backend.model.Animals;
+import de.neuefische.backend.model.Animal;
+import de.neuefische.backend.model.FeedingState;
 import de.neuefische.backend.repository.RepoAnimals;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +13,7 @@ import static org.mockito.Mockito.*;
 class ServiceFeedingTest {
 
     RepoAnimals repoAnimals = mock(RepoAnimals.class);
-    Animals animals1 = new Animals("1", "Elephant", "fruit", 10, "Monday", 3, "open", "Amelie", "");
+    Animal animals1 = new Animal("1", "Elephant", "fruit", 10, "Monday", 3, FeedingState.NONE, "Amelie", "");
     ServiceFeeding serviceFeeding = new ServiceFeeding(repoAnimals);
     @Test
     void getAllAnimals_shouldReturnAListOfAllAnimals() {
@@ -22,7 +23,7 @@ class ServiceFeedingTest {
 
         ));
         //WHEN
-        List<Animals> actual = serviceFeeding.getAllAnimals();
+        List<Animal> actual = serviceFeeding.getAllAnimals();
 
         //THEN
         verify(repoAnimals).getAllAnimals();

@@ -1,6 +1,6 @@
 package de.neuefische.backend.service;
 
-import de.neuefische.backend.model.Animals;
+import de.neuefische.backend.model.Animal;
 import de.neuefische.backend.repository.RepoAnimals;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,11 @@ public class ServiceFeeding {
 
     private final RepoAnimals repoAnimals;
 
-    public List<Animals> getAllAnimals() {
+    public Animal updateAnimal(Animal animal) {
+        return repoAnimals.update(animal);
+    }
+
+    public List<Animal> getAllAnimals() {
         return repoAnimals.getAllAnimals();
     }
 }

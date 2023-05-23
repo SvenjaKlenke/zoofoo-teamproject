@@ -1,11 +1,11 @@
 package de.neuefische.backend.controller;
 
-import de.neuefische.backend.model.Animals;
+import de.neuefische.backend.model.Animal;
 import de.neuefische.backend.service.ServiceFeeding;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -17,7 +17,15 @@ public class ControllerZooFoo {
     private final ServiceFeeding serviceFeeding;
 
     @GetMapping("/animal")
-    public List<Animals> getAllAnimals() {
+    public List<Animal> getAllAnimals() {
         return serviceFeeding.getAllAnimals();
+    }
+
+    @PutMapping({"animal/{id}/update","{id}"})
+    public Animal changeAnimalStatus(@PathVariable String id, @RequestBody Animal animal){
+        if (!animal.getId().equals(id)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The id in the url does not match the request body's id");
+        }
+        return serviceFeeding.updateAnimal(animal);
     }
 }

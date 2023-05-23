@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Route, Routes} from "react-router-dom";
-import AnimalGallery from "./AnimalGallery/AnimalGallery";
+import AnimalGallery from "./animalGallery/AnimalGallery";
 import axios from "axios";
 import {Animal} from "./model/AnimalModel";
 import logo from "./logo.svg";
+import DayBar from "./element/DayBar";
 
 
 function App() {
@@ -19,14 +20,19 @@ function App() {
     }
     useEffect(getAllAnimals, [])
 
+
+
+
   return (
     <div className="App">
         <header className="App-header">
             <img id="logo" src={logo}/>
+            <DayBar></DayBar>
             <ul>
                 <li>Feeding</li>
                 <li>Order</li>
             </ul>
+
         </header>
         <Routes>
             <Route path={"/"} element={<AnimalGallery animals={animalList}/>}/>

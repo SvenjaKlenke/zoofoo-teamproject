@@ -3,18 +3,20 @@ package de.neuefische.backend.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Animals {
+public class Animal {
+
     private String id;
     private String species;
     private String food;
     private int foodAmount;
     private String dayToFeed;
     private int numberOfAnimals;
-    private String feedStatus;
+    private FeedingState feedStatus;
     private String animalKeeper;
     private String pictureOfAnimal;
 
