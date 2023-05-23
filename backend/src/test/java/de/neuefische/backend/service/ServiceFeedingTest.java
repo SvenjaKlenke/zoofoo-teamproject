@@ -17,7 +17,7 @@ class ServiceFeedingTest {
     @Test
     void getAllAnimals_shouldReturnAListOfAllAnimals() {
         //GIVEN
-        when(repoAnimals.getAllAnimals()).thenReturn(List.of(
+        when(repoAnimals.findAll()).thenReturn(List.of(
                 animal1
 
         ));
@@ -25,7 +25,7 @@ class ServiceFeedingTest {
         List<Animal> actual = serviceFeeding.getAllAnimals();
 
         //THEN
-        verify(repoAnimals).getAllAnimals();
+        verify(repoAnimals).findAll();
         assertEquals(actual, List.of(
                 animal1
         ));
