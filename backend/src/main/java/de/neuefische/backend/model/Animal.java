@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Animals {
+public class Animal {
     private String id;
     private String species;
     private String food;
