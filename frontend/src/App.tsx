@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App">
         <header className="App-header">
-            <img id="logo" src={logo}/>
+            <img id="logo" src={logo} alt="logo"/>
             <ul>
                 <li>Feeding</li>
                 <li>Order</li>
