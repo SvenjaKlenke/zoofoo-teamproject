@@ -3,7 +3,6 @@ import "./AnimalGallery.css";
 import {Animal} from "../model/AnimalModel";
 import AnimalCard from "../AnimalCard/AnimalCard";
 
-
 type Props = {
     animals: Animal[];
 }

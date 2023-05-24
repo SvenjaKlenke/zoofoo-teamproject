@@ -7,6 +7,8 @@ import axios from "axios";
 import {Animal} from "./model/AnimalModel";
 
 
+
+
 function App() {
 
     const [animalList, setAnimalList] = useState<Animal[]>([])
@@ -18,6 +20,7 @@ function App() {
                 })
     }
     useEffect(getAllAnimals, [])
+
 
   return (
     <div className="App">
