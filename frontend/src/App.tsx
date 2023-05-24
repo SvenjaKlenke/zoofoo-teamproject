@@ -20,14 +20,11 @@ function App() {
     }
     useEffect(getAllAnimals, [])
 
-
-
-
   return (
     <div className="App">
         <header className="App-header">
             <img id="logo" src={logo}/>
-            <DayBar></DayBar>
+            <DayBar animals={animalList} getAllAnimals={getAllAnimals}></DayBar>
             <ul>
                 <li>Feeding</li>
                 <li>Order</li>
