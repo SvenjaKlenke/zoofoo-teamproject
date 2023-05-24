@@ -13,11 +13,11 @@ public class ServiceFeeding {
 
     private final RepoAnimals repoAnimals;
 
+    public List<Animal> getAllAnimals() {
+        return repoAnimals.findAll();
+    }
     public Animal updateAnimal(Animal animal) {
         return repoAnimals.update(animal);
     }
 
-    public List<Animal> getAllAnimals() {
-        return repoAnimals.getAllAnimals();
-    }
 }
