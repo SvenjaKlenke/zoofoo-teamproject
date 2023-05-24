@@ -11,7 +11,7 @@ function AnimalCard(props:Props) {
     const navigate = useNavigate();
 
     function onClickHandlerForDetails() {
-        navigate("/animal" + props.animals.id)
+        navigate("/animal/" + props.animals.id)
     }
 
     return (

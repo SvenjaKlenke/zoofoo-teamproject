@@ -5,6 +5,7 @@ import AnimalGallery from "./AnimalGallery/AnimalGallery";
 import axios from "axios";
 import {Animal} from "./model/AnimalModel";
 import logo from "./logo.svg";
+import AnimalCardDetails from "./AnimalCard/AnimalCardDetails";
 
 
 function App() {
@@ -30,9 +31,9 @@ function App() {
         </header>
         <Routes>
             <Route path={"/"} element={<AnimalGallery animals={animalList}/>}/>
+            <Route path={"animal/:id"} element={<AnimalCardDetails animals={animalList}/>}/>
         </Routes>
     </div>
   );
 }
-
 export default App;
