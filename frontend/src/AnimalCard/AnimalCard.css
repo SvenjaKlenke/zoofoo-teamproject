@@ -1,5 +1,6 @@
 .AnimalCard {
     display: flex;
+    flex-direction: column;
     align-items: center;
     width: 350px;
     height: 200px;
@@ -15,23 +16,38 @@
     transform: translateX(+5px);
 }
 
+.AnimalCard .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
 .AnimalCard h2 {
-    margin: 30px;
+    margin: 0 10px 0 0;
     font-size: 18px;
     font-weight: bold;
 }
 
 .AnimalCard p {
+    margin: 0 10px;
     font-size: 18px;
     text-align: center;
-    margin: 25px;
-
 }
 
 .AnimalCard img {
     width: 150px;
     height: 150px;
-    margin-bottom: 10px;
-    margin-left: 0px;
+    margin-right: 10px;
 }
 
+.AnimalCard select {
+    margin-top: auto;
+    background-color: darkgrey;
+    color: #333333;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+}

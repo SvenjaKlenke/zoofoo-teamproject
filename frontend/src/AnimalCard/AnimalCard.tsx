@@ -14,9 +14,11 @@ function AnimalCard(props:Props) {
 
     return (
         <div className="AnimalCard">
-            <img src={props.animals.pictureOfAnimal} alt={"animal"}></img>
-            <h2>{props.animals.species}</h2>
-            <p>Amount: {props.animals.numberOfAnimals}</p>
+            <div className="content">
+                <img src={props.animals.pictureOfAnimal} alt={"animal"}></img>
+                <h2>{props.animals.species}</h2>
+                <p>Amount: {props.animals.numberOfAnimals}</p>
+            </div>
             <select>
                 <option value="keeper" selected>select Keeper</option>
                 <option value="1">Amelie</option>
