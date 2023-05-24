@@ -1,6 +1,6 @@
 package de.neuefische.backend.controller;
 
-import de.neuefische.backend.model.Animals;
+import de.neuefische.backend.model.Animal;
 import de.neuefische.backend.service.ServiceFeeding;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ public class ControllerZooFoo {
     private final ServiceFeeding serviceFeeding;
 
     @GetMapping("/animal")
-    public List<Animals> getAllAnimals() {
+    public List<Animal> getAllAnimals() {
         return serviceFeeding.getAllAnimals();
     }
 }
