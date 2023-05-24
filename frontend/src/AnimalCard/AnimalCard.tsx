@@ -6,6 +6,10 @@ type Props = {
     animals: Animal
 }
 
+function selectKeeper() {
+
+}
+
 function AnimalCard(props:Props) {
 
     return (
@@ -13,6 +17,7 @@ function AnimalCard(props:Props) {
             <img src={props.animals.pictureOfAnimal} alt={"animal"}></img>
             <h2>{props.animals.species}</h2>
             <p>Amount: {props.animals.numberOfAnimals}</p>
+            <button onClick={selectKeeper}>Assume Task</button>
         </div>
     );
 }
