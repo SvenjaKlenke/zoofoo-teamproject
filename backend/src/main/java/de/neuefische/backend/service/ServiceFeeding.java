@@ -19,5 +19,7 @@ public class ServiceFeeding {
     public Animal updateAnimal(Animal animal) {
         return repoAnimals.save(animal);
     }
-
+    public Animal saveAnimal(Animal animal){
+        return repoAnimals.save(animal);
+    }
 }

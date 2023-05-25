@@ -21,6 +21,10 @@ public class ControllerZooFoo {
         return serviceFeeding.getAllAnimals();
     }
 
+    @PostMapping("/animal")
+    public Animal postAnimal(@RequestBody Animal animal){
+        return serviceFeeding.saveAnimal(animal);
+    }
     @PutMapping({"animal/{id}"})
     public Animal changeAnimalStatus(@PathVariable String id, @RequestBody Animal animal){
         if (!animal.getId().equals(id)) {
@@ -28,4 +32,5 @@ public class ControllerZooFoo {
         }
         return serviceFeeding.updateAnimal(animal);
     }
+
 }
