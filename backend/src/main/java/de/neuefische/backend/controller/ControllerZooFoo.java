@@ -21,7 +21,7 @@ public class ControllerZooFoo {
         return serviceFeeding.getAllAnimals();
     }
 
-    @PutMapping({"animal/{id}/update","{id}"})
+    @PutMapping({"animal/{id}"})
     public Animal changeAnimalStatus(@PathVariable String id, @RequestBody Animal animal){
         if (!animal.getId().equals(id)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The id in the url does not match the request body's id");

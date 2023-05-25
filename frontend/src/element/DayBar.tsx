@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import axios from "axios/index";
+import axios from "axios";
 import {Animal} from "../model/AnimalModel";
 
 type Prop={
@@ -40,7 +40,7 @@ export default function DayBar(props: Prop) {
                     numberOfAnimals: animal.numberOfAnimals,
                     feedStatus: "NONE",
                     animalKeeper: animal.animalKeeper,
-                    pictureOfAnimal: animal.numberOfAnimals
+                    pictureOfAnimal: animal.pictureOfAnimal
                 })
         })
     }
@@ -55,7 +55,7 @@ export default function DayBar(props: Prop) {
                 numberOfAnimals: animal.numberOfAnimals,
                 feedStatus: (animal.feedStatus==="NONE" ? (animal.dayToFeed===dayOfTheWeek ? "OPEN" : animal.feedStatus) : animal.feedStatus) ,
                 animalKeeper: animal.animalKeeper,
-                pictureOfAnimal: animal.numberOfAnimals
+                pictureOfAnimal: animal.pictureOfAnimal
             })
             }
 
