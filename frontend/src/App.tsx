@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react';
+import logo from './logo.svg';
 import './App.css';
 import {Route, Routes} from "react-router-dom";
 import AnimalGallery from "./AnimalGallery/AnimalGallery";
 import axios from "axios";
 import {Animal} from "./model/AnimalModel";
-import logo from "./logo.svg";
+
+
 
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
                 })
     }
     useEffect(getAllAnimals, [])
+
 
   return (
     <div className="App">
