@@ -30,7 +30,7 @@ public class ControllerZooFoo {
         if (!animal.getId().equals(id)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The id in the url does not match the request body's id");
         }
-        return serviceFeeding.updateAnimal(animal);
+        return serviceFeeding.saveAnimal(animal);
     }
 
 }

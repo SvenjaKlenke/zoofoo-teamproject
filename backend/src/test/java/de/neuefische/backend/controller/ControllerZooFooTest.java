@@ -37,7 +37,7 @@ class ControllerZooFooTest {
     @Test
     void postNewAnimal_expectSuccessfulPost() throws Exception {
         String actual = mockMvc.perform(
-                        post("http://localhost:8080/api/animal")
+                        post("/api/animal")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content("""
                                         {
@@ -76,7 +76,7 @@ class ControllerZooFooTest {
     @DirtiesContext
     @Test
     void whenChangeAnimalStatus_ThenReturnUpdatedAnimalItem_AndStatusCode200() throws Exception {
-        mockMvc.perform(post("http://localhost:8080/api/animal")
+        mockMvc.perform(post("/api/animal")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content("""
                         {

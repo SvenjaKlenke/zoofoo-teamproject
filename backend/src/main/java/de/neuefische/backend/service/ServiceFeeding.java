@@ -16,9 +16,7 @@ public class ServiceFeeding {
     public List<Animal> getAllAnimals() {
         return repoAnimals.findAll();
     }
-    public Animal updateAnimal(Animal animal) {
-        return repoAnimals.save(animal);
-    }
+
     public Animal saveAnimal(Animal animal){
         return repoAnimals.save(animal);
     }
