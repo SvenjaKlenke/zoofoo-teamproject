@@ -13,7 +13,7 @@ function App() {
     const [animalList, setAnimalList] = useState<Animal[]>([])
 
     function getAllAnimals() {
-        axios.get("api/animal")
+        axios.get("/api/animal")
             .then((response) => {
                 setAnimalList(response.data)
                 })
@@ -31,7 +31,7 @@ function App() {
         </header>
         <Routes>
             <Route path={"/"} element={<AnimalGallery animals={animalList}/>}/>
-            <Route path={"animal/:id"} element={<AnimalCardDetails animals={animalList}/>}/>
+            <Route path={"/animal/:id"} element={<AnimalCardDetails animals={animalList}/>}/>
         </Routes>
     </div>
   );
