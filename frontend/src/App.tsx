@@ -6,6 +6,7 @@ import axios from "axios";
 import {Animal} from "./model/AnimalModel";
 import logo from "./logo.svg";
 import DayBar from "./element/DayBar";
+import AnimalCardDetails from "./AnimalCard/AnimalCardDetails";
 
 
 function App() {
@@ -13,17 +14,18 @@ function App() {
     const [animalList, setAnimalList] = useState<Animal[]>([])
 
     function getAllAnimals() {
-        axios.get("api/animal")
+        axios.get("/api/animal")
             .then((response) => {
                 setAnimalList(response.data)
                 })
     }
     useEffect(getAllAnimals, [])
 
+
   return (
     <div className="App">
         <header className="App-header">
-            <img id="logo" src={logo}/>
+            <img id="logo" src={logo} alt="logo"/>
             <DayBar animals={animalList} getAllAnimals={getAllAnimals}></DayBar>
             <ul>
                 <li>Feeding</li>
@@ -33,9 +35,9 @@ function App() {
         </header>
         <Routes>
             <Route path={"/"} element={<AnimalGallery animals={animalList}/>}/>
+            <Route path={"/animal/:id"} element={<AnimalCardDetails animals={animalList}/>}/>
         </Routes>
     </div>
   );
 }
-
 export default App;

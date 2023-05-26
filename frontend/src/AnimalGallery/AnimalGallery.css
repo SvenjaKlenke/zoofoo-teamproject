@@ -1,0 +1,20 @@
+.Gallery-AnimalCard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    color: lightgray;
+    background-color: darkolivegreen;
+    font-size: 30px;
+    margin-right: 10px;
+    border-radius: 10px;
+
+
+}
