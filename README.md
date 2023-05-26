@@ -15,5 +15,5 @@ Before running this program, make sure you have completed the following steps:
 - Click "Connect" to establish a connection.
 - Click "Create Database" and choose the name for the database ( `ZooFooDB`).
 - Click "Create Collection" and choose the name for the collection (`Animals`)
-- Click "Add Data" and choose "Import JASON oder CSV file"
+- Click "Add Data" and choose "Import JSON oder CSV file"
 - Use the file backend/src/test/resources/Animals.json
