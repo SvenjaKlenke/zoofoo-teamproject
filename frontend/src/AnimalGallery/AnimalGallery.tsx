@@ -19,19 +19,19 @@ function AnimalGallery(props: Props) {
 
             <div className="card">
                 <h2>AllAnimals</h2>
-                {feedingNone.map(animal => <AnimalCard animals={animal}/>)}
+                {feedingNone.map(animal => <AnimalCard key={animal.id} animals={animal}/>)}
             </div>
             <div className="card">
                 <h2>ToFeed</h2>
-                {feedingOpen.map(animal => <AnimalCard animals={animal}/>)}
+                {feedingOpen.map(animal => <AnimalCard key={animal.id} animals={animal}/>)}
             </div>
             <div className="card">
                 <h2>Feeding</h2>
-                {feedingDoing.map(animal => <AnimalCard animals={animal}/>)}
+                {feedingDoing.map(animal => <AnimalCard key={animal.id} animals={animal}/>)}
             </div>
             <div className="card">
                 <h2>Fed</h2>
-                {feedingDone.map(animal => <AnimalCard animals={animal}/>)}
+                {feedingDone.map(animal => <AnimalCard key={animal.id} animals={animal}/>)}
             </div>
         </div>
     );

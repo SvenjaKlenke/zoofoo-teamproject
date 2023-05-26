@@ -1,0 +1,33 @@
+.detailsContainer {
+    position: relative;
+    height: 100vh;
+}
+
+.detailsCard {
+    width: 300px;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.detailsCard h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.detailsCard p {
+    margin-bottom: 8px;
+}
+
+.detailsContainer img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+}
+
