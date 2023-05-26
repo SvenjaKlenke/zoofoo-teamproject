@@ -25,7 +25,7 @@ function AnimalCard(props:Props) {
             <div className="buttonContainer">
                 <button className="button" onClick={onClickHandlerForDetails}>DETAILS</button>
                 <select className="button">
-                    <option value="keeper" selected>select Keeper</option>
+                    <option defaultValue="keeper">select Keeper</option>
                     <option value="1">Amelie</option>
                     <option value="2">Kristina</option>
                     <option value="3">Richard</option>
