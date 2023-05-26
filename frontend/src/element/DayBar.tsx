@@ -30,7 +30,7 @@ export default function DayBar(props: Prop) {
         }
     }
     function resetFeedingStateOfAnimal(){
-        props.animals.map(animal =>{
+        props.animals.forEach(animal =>{
                 axios.put("/api/animal/"+animal.id,{
                     id: animal.id,
                     species: animal.species,
@@ -45,7 +45,7 @@ export default function DayBar(props: Prop) {
         })
     }
     function changeFeedingStateOfAnimalToOpen(){
-        props.animals.map(animal =>{
+        props.animals.forEach(animal =>{
             axios.put("/api/animal/"+animal.id,{
                 id: animal.id,
                 species: animal.species,
