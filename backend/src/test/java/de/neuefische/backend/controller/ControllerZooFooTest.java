@@ -12,6 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -111,5 +112,35 @@ class ControllerZooFooTest {
                     .andExpect(jsonPath("$.id").isNotEmpty())
                     .andReturn();
 
+    }
+
+    @DirtiesContext
+    @Test
+    void whenChangeAnimalStatus_ThenTrowException_AndStatusCode400() throws Exception {
+        mockMvc.perform(post("/api/animal")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                        {
+                                                        "id": "2",
+                                                        "species":"Elephant",
+                                                        "food":"Gras",
+                                                        "foodAmount":10
+                        }
+                        """)
+                )
+                .andExpect(status().isOk());
+
+        mockMvc.perform(MockMvcRequestBuilders.put("/api/animal/"+"5")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                        {
+                                                        "id": "2",
+                                                        "species":"Elephant",
+                                                        "food":"Weed",
+                                                        "foodAmount":20
+                        }
+                        """))
+                .andExpect(status().is(400))
+                .andExpect(status().reason(containsString("The id in the url does not match the request body's id")));
     }
 }
