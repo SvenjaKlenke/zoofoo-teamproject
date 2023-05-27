@@ -1,17 +1,18 @@
 import React from 'react';
+import {WeatherModel} from "../model/WeatherModel";
+import "./Weather.css"
 
 type Props = {
-    temperature: string;
+    temperature: WeatherModel
 }
 
 function Weather(props: Props) {
-
     return (
-        <div>
-            {props.temperature !== null ? (
+        <div className="containerTemperature">
+            {props.temperature.temp !== "null" ? (
                 <div>
                     <h3>actual temperature:</h3>
-                    <p>{props.temperature} *C</p>
+                    <p>{props.temperature.temp} *C</p>
                 </div>
             ) : (
                 <p>load temperature...</p>

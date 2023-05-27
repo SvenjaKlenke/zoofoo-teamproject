@@ -6,12 +6,13 @@ import axios from "axios";
 import {Animal} from "./model/AnimalModel";
 import logo from "./logo.svg";
 import AnimalCardDetails from "./AnimalCard/AnimalCardDetails";
-
+import Weather from "./weather/Weather";
+import {WeatherModel} from "./model/WeatherModel";
 
 function App() {
 
     const [animalList, setAnimalList] = useState<Animal[]>([])
-    const [temperature, setTemperature] = useState(null);
+    const [temperature, setTemperature] = useState<WeatherModel>({temp: "null"})
 
     function getAllAnimals() {
         axios.get("/api/animal")
@@ -36,14 +37,19 @@ function App() {
             <header className="App-header">
                 <img id="logo" src={logo} alt="logo"/>
                 <ul>
-                <li>Feeding</li>
-                <li>Order</li>
-            </ul>
-        </header>
-        <Routes>
-            <Route path={"/"} element={<AnimalGallery animals={animalList}/>}/>
-            <Route path={"/animal/:id"} element={<AnimalCardDetails animals={animalList}/>}/>
-        </Routes>
+                    <li>Feeding</li>
+                    <li>Order</li>
+                </ul>
+                <div className="weatherContainer">
+                    <Routes>
+                        <Route path={"/"} element={<Weather temperature={temperature}/>}/>
+                    </Routes>
+                </div>
+            </header>
+            <Routes>
+                <Route path={"/"} element={<AnimalGallery animals={animalList}/>}/>
+                <Route path={"/animal/:id"} element={<AnimalCardDetails animals={animalList}/>}/>
+            </Routes>
     </div>
   );
 }
