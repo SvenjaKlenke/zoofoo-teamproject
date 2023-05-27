@@ -20,4 +20,9 @@ public class ControllerZooFoo {
     public List<Animal> getAllAnimals() {
         return serviceFeeding.getAllAnimals();
     }
+
+    @GetMapping("/temperature")
+    public Weather getTemperature() {
+        return serviceWeather.getTemperature();
+    }
 }
