@@ -14,6 +14,11 @@ public class ServiceWeather {
 
     WebClient webClient = WebClient.create("https://api.openweathermap.org/data/2.5/weather?lat=21.3069&lon=157.8583&appid=78cf5dedfcd4a63d188233d2779482b3");
 
+    public double kelvinToCelsius(double kelvin) {
+        double celsius = kelvin - 273.15;
+        return (int) Math.round(celsius);
+    }
+
     public Weather getTemperature() {
 
         WeatherResponse response =
@@ -24,6 +29,10 @@ public class ServiceWeather {
                         .toEntity(WeatherResponse.class)
                         .block()
                         .getBody();
+
+        double temperatureInKelvin = response.getMain().getTemp();
+        int temperatureInCelsius = (int) kelvinToCelsius(temperatureInKelvin);
+        response.getMain().setTemp(temperatureInCelsius);
         return response.getMain();
     }
 }
