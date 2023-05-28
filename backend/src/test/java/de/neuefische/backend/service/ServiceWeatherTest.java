@@ -16,8 +16,16 @@ class ServiceWeatherTest {
         assertEquals(actual, 26);
     }
 
-    @Test
+  /*  @Test
     void getTemperatureFromApi() {
+        //Mocking the webClient
+        WebClient webClientMock = mock(WebClient.class);
+        WeatherResponse weatherResponse = new WeatherResponse();
+        Weather weather = new Weather();
+        //GIVEN
+        when(webClientMock.get()).thenReturn();
 
-    }
+        //Then
+
+    }*/
 }
