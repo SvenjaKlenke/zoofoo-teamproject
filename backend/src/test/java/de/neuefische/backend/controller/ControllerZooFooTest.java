@@ -25,4 +25,11 @@ class ControllerZooFooTest {
 
     }
 
+    @Test
+    void getTemperature_andReturnStatusCode200() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/temperature"))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{}"));
+    }
+
 }
