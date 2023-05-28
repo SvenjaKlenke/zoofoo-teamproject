@@ -29,10 +29,12 @@ public class ServiceWeather {
                         .toEntity(WeatherResponse.class)
                         .block()
                         .getBody();
-
-        double temperatureInKelvin = response.getMain().getTemp();
-        int temperatureInCelsius = (int) kelvinToCelsius(temperatureInKelvin);
-        response.getMain().setTemp(temperatureInCelsius);
-        return response.getMain();
+        if (response != null) {
+            double temperatureInKelvin = response.getMain().getTemp();
+            int temperatureInCelsius = (int) kelvinToCelsius(temperatureInKelvin);
+            response.getMain().setTemp(temperatureInCelsius);
+            return response.getMain();
+        }
+        throw new NullPointerException("Failed to retrieve temperature data");
     }
 }
