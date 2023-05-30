@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
@@ -18,6 +19,7 @@ class ControllerZooFooTest {
     MockMvc mockMvc;
 
     @Test
+    @WithMockUser(username = "user", password = "1234")
     void getAllAnimals_returnAllAnimalsAsList_andStatusCode200() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/animal"))
                 .andExpect(status().isOk())
