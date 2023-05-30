@@ -16,16 +16,16 @@ public class KeeperController {
 
     private final ServiceKeeper serviceKeeper;
 
-    @GetMapping("/me")
-    public String getMeControllerOnly(Principal principal) {
+    @GetMapping("/user")
+    public String getUserControllerOnly(Principal principal) {
         if (principal != null) {
             return principal.getName();
         }
         return "Not Logged in";
     }
 
-    @GetMapping("/me2")
-    public String getMeFromEverywhere() {
+    @GetMapping("/user2")
+    public String getUserFromEverywhere() {
         System.out.println(SecurityContextHolder.getContext());
         return SecurityContextHolder
                 .getContext()
