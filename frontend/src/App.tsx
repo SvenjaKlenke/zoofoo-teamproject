@@ -6,11 +6,15 @@ import axios from "axios";
 import {Animal} from "./model/AnimalModel";
 import logo from "./logo.svg";
 import AnimalCardDetails from "./AnimalCard/AnimalCardDetails";
+import ProtectedRoutes from "./login/ProtectedRoutes";
+import LoginPage from "./login/LoginPage";
+import useKeeper from "./login/useKeeper";
 
 
 function App() {
 
     const [animalList, setAnimalList] = useState<Animal[]>([])
+    const {login, user} = useKeeper()
 
     function getAllAnimals() {
         axios.get("/api/animal")
@@ -31,8 +35,11 @@ function App() {
             </ul>
         </header>
         <Routes>
-            <Route path={"/"} element={<AnimalGallery animals={animalList}/>}/>
-            <Route path={"/animal/:id"} element={<AnimalCardDetails animals={animalList}/>}/>
+            <Route path={"/keeper/login"} element={<LoginPage login={login}/>}/>
+            <Route element={<ProtectedRoutes user={user}/>}>
+                <Route path={"/"} element={<AnimalGallery animals={animalList}/>}/>
+                <Route path={"/animal/:id"} element={<AnimalCardDetails animals={animalList}/>}/>
+            </Route>
         </Routes>
     </div>
   );
