@@ -5,6 +5,7 @@ import AnimalGallery from "./AnimalGallery/AnimalGallery";
 import axios from "axios";
 import {Animal} from "./model/AnimalModel";
 import logo from "./logo.svg";
+import DayBar from "./element/DayBar";
 import AnimalCardDetails from "./AnimalCard/AnimalCardDetails";
 
 
@@ -25,10 +26,12 @@ function App() {
     <div className="App">
         <header className="App-header">
             <img id="logo" src={logo} alt="logo"/>
+            <DayBar animals={animalList} getAllAnimals={getAllAnimals}></DayBar>
             <ul>
                 <li>Feeding</li>
                 <li>Order</li>
             </ul>
+
         </header>
         <Routes>
             <Route path={"/"} element={<AnimalGallery animals={animalList}/>}/>
