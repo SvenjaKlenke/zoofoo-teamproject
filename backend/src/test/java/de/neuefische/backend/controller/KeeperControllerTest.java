@@ -27,6 +27,14 @@ class KeeperControllerTest {
     }
 
     @Test
+    @WithMockUser(username = "", password = "")
+    void getUserControllerOnly_Empty_SayNotLoggedIn() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/user"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("Not Logged in"));
+    }
+
+    @Test
     @WithMockUser(username = "user", password = "123")
     void getUserFromEverywhere() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/user2"))
