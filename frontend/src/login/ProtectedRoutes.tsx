@@ -10,7 +10,7 @@ function ProtectedRoutes(props: Props) {
     const authenticated = props.user !== undefined && props.user !== "anonymous keeper"
 
     return (
-        authenticated ? <Outlet/> : <Navigate to={"/keeper/login"}/>
+        authenticated ? <Outlet/> : <Navigate to={"/api/login"}/>
     );
 }
 

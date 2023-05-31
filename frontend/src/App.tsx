@@ -35,7 +35,7 @@ function App() {
             </ul>
         </header>
         <Routes>
-            <Route path={"/keeper/login"} element={<LoginPage login={login}/>}/>
+            <Route path={"/keeper"} element={<LoginPage login={login}/>}/>
             <Route element={<ProtectedRoutes user={user}/>}>
                 <Route path={"/"} element={<AnimalGallery animals={animalList}/>}/>
                 <Route path={"/animal/:id"} element={<AnimalCardDetails animals={animalList}/>}/>

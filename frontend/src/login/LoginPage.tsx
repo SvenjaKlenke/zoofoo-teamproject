@@ -15,7 +15,7 @@ function LoginPage(props: Props) {
         e.preventDefault();
         props.login(username, password)
             .then(() => {
-                nav("/feeding")
+                nav("/")
             });
     }
 
