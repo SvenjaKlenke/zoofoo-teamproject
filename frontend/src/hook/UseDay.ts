@@ -41,7 +41,7 @@ export default function useDay() {
 
     function changeStatusOfAnimal() {
         animalList.forEach(animal => {
-            animal.dayToFeed === dayOfTheWeek ? animal.feedStatus = "OPEN" : animal.feedStatus = "NONE"
+            animal.feedStatus = (animal.dayToFeed === dayOfTheWeek) ? "OPEN" : "NONE";
             axios.put("/api/animal/" + animal.id, {
                 id: animal.id,
                 species: animal.species,
