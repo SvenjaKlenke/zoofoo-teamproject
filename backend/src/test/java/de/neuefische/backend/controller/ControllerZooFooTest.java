@@ -152,6 +152,8 @@ class ControllerZooFooTest {
                 .andExpect(status().reason(containsString("The id in the url does not match the request body's id")));
     }
     @Test
+    @DirtiesContext
+    @WithMockUser(username = "user", password = "1234")
     void getTemperature_andReturnStatusCode200() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/temperature"))
                 .andExpect(status().isOk())
