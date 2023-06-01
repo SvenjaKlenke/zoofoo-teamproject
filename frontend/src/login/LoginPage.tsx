@@ -16,6 +16,9 @@ function LoginPage(props: Props) {
         props.login(username, password)
             .then(() => {
                 nav("/")
+            })
+            .catch((error) => {
+                console.error("Error occured while logging in:", error);
             });
     }
 
