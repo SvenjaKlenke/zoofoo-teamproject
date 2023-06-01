@@ -24,7 +24,7 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <img id="logo" src={logo} alt="logo"/>
-                <DayBar animals={animalList} nextDay={goToNextDay} prevDay={goToPreviousDay} currentDay={dayOfTheWeek}></DayBar>
+                <DayBar animals={animalList} nextDay={goToNextDay} prevDay={goToPreviousDay} currentDay={dayOfTheWeek}/>
                 <ul>
                     <li>Feeding</li>
                     <li>Order</li>
