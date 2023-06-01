@@ -12,7 +12,11 @@ function App() {
 
     const {getAllAnimals,dayOfTheWeek, goToPreviousDay,goToNextDay,animalList} = useDay();
 
-    useEffect(getAllAnimals, [animalList])
+    useEffect(() => {
+        getAllAnimals()
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [dayOfTheWeek])
 
     const feedingNone = animalList.filter(currentAnimal => currentAnimal.feedStatus === "NONE")
     const feedingOpen = animalList.filter(currentAnimal => currentAnimal.feedStatus === "OPEN")
