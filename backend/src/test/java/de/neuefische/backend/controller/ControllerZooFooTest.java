@@ -143,4 +143,11 @@ class ControllerZooFooTest {
                 .andExpect(status().is(400))
                 .andExpect(status().reason(containsString("The id in the url does not match the request body's id")));
     }
+    @Test
+    void getTemperature_andReturnStatusCode200() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/temperature"))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{}"));
+    }
+
 }

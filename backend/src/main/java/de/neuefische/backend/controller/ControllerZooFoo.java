@@ -1,7 +1,9 @@
 package de.neuefische.backend.controller;
 
 import de.neuefische.backend.model.Animal;
+import de.neuefische.backend.model.Weather;
 import de.neuefische.backend.service.ServiceFeeding;
+import de.neuefische.backend.service.ServiceWeather;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +17,7 @@ import java.util.List;
 public class ControllerZooFoo {
 
     private final ServiceFeeding serviceFeeding;
+    private final ServiceWeather serviceWeather;
 
     @GetMapping("/animal")
     public List<Animal> getAllAnimals() {
@@ -33,4 +36,9 @@ public class ControllerZooFoo {
         return serviceFeeding.saveAnimal(animal);
     }
 
+
+    @GetMapping("/temperature")
+    public Weather getTemperature() {
+        return serviceWeather.getTemperature();
+    }
 }
