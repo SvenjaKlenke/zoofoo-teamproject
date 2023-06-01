@@ -18,7 +18,7 @@ public class Animal {
     private int foodAmount;
     private String dayToFeed;
     private int numberOfAnimals;
-    private String feedStatus;
+    private FeedingState feedStatus;
     private String animalKeeper;
     private String pictureOfAnimal;
 

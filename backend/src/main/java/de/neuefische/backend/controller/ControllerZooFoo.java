@@ -5,9 +5,9 @@ import de.neuefische.backend.model.Weather;
 import de.neuefische.backend.service.ServiceFeeding;
 import de.neuefische.backend.service.ServiceWeather;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -23,6 +23,19 @@ public class ControllerZooFoo {
     public List<Animal> getAllAnimals() {
         return serviceFeeding.getAllAnimals();
     }
+
+    @PostMapping("/animal")
+    public Animal postAnimal(@RequestBody Animal animal){
+        return serviceFeeding.saveAnimal(animal);
+    }
+    @PutMapping({"animal/{id}"})
+    public Animal changeAnimalStatus(@PathVariable String id, @RequestBody Animal animal){
+        if (!animal.getId().equals(id)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The id in the url does not match the request body's id");
+        }
+        return serviceFeeding.saveAnimal(animal);
+    }
+
 
     @GetMapping("/temperature")
     public Weather getTemperature() {
