@@ -1,79 +1,22 @@
-import React, {useState} from 'react';
-import axios from "axios";
+import React from 'react';
 import {Animal} from "../model/AnimalModel";
 
-type Prop={
+
+type Props  = {
     animals: Animal[],
-    getAllAnimals: ()=> void
+    currentDay: string,
+    nextDay: () => void
+    prevDay: () => void
 }
 
-export default function DayBar(props: Prop) {
-    const [dayOfTheWeek, setDayOfTheWeek]=useState<string>("Monday");
-    const weekdays:string[] =["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-
-    function goToPreviousDay() {
-        if (dayOfTheWeek===weekdays[0]){
-            setDayOfTheWeek(weekdays[6])
-        }else for (let i=1; i<weekdays.length; i++){
-            if(weekdays[i]===dayOfTheWeek){
-                setDayOfTheWeek(weekdays[i-1])
-            }
-        }
-    }
-    function goToNextDay() {
-        if (dayOfTheWeek===weekdays[6]){
-            setDayOfTheWeek(weekdays[0])
-        }else for (let i=0; i<weekdays.length; i++){
-            if(weekdays[i]===dayOfTheWeek){
-                setDayOfTheWeek(weekdays[i+1])
-            }
-        }
-    }
-    function resetFeedingStateOfAnimal(){
-        props.animals.forEach(animal =>{
-                axios.put("/api/animal/"+animal.id,{
-                    id: animal.id,
-                    species: animal.species,
-                    food: animal.food,
-                    foodAmount: animal.foodAmount,
-                    dayToFeed: animal.dayToFeed,
-                    numberOfAnimals: animal.numberOfAnimals,
-                    feedStatus: "NONE",
-                    animalKeeper: animal.animalKeeper,
-                    pictureOfAnimal: animal.pictureOfAnimal
-                })
-        })
-    }
-    function changeFeedingStateOfAnimalToOpen(){
-        props.animals.forEach(animal =>{
-            axios.put("/api/animal/"+animal.id,{
-                id: animal.id,
-                species: animal.species,
-                food: animal.food,
-                foodAmount: animal.foodAmount,
-                dayToFeed: animal.dayToFeed,
-                numberOfAnimals: animal.numberOfAnimals,
-                feedStatus: (animal.feedStatus==="NONE" ? (animal.dayToFeed===dayOfTheWeek ? "OPEN" : animal.feedStatus) : animal.feedStatus) ,
-                animalKeeper: animal.animalKeeper,
-                pictureOfAnimal: animal.pictureOfAnimal
-            })
-            }
-
-        )}
-
-    function onClickHandler (){
-        goToNextDay();
-        resetFeedingStateOfAnimal();
-        changeFeedingStateOfAnimalToOpen();
-        props.getAllAnimals();
-    }
+export default function DayBar(props:Props) {
 
     return (
         <>
             <div>
-                <h6>{dayOfTheWeek}</h6>
-                <button onClick={goToPreviousDay}>PREV</button>
-                <button onClick={onClickHandler}>NEXT</button>
+                <h6>{props.currentDay}</h6>
+                <button onClick={props.prevDay}>PREV</button>
+                <button onClick={props.nextDay}>NEXT</button>
             </div>
 
         </>
