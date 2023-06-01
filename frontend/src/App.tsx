@@ -12,12 +12,17 @@ import useDay from "./hook/UseDay";
 import Weather from "./weather/Weather";
 import {WeatherModel} from "./model/WeatherModel";
 import axios from "axios";
+import Modal from "./element/Modal";
+
 
 function App() {
 
     const {login, user} = useKeeper()
     const {getAllAnimals,dayOfTheWeek, goToPreviousDay,goToNextDay,animalList} = useDay();
     const [temperature, setTemperature] = useState<WeatherModel>({temp: "null"})
+    const[openModal, setOpenModal] = useState<boolean>(false);
+
+    const weekdays: string[] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
     useEffect(() => {
         getAllAnimals()
@@ -43,6 +48,8 @@ function App() {
             <header className="App-header">
                 <img id="logo" src={logo} alt="logo"/>
                 <DayBar animals={animalList} nextDay={goToNextDay} prevDay={goToPreviousDay} currentDay={dayOfTheWeek}/>
+                <button className={"openModalBtn"} onClick={()=> {setOpenModal(true);}}>New Animal</button>
+                {openModal && <Modal closeModal={setOpenModal} weekdays={weekdays}/>}
                 <ul>
                     <li>Feeding</li>
                     <li>Order</li>
