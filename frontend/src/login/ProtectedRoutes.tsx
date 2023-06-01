@@ -7,10 +7,10 @@ type Props = {
 
 function ProtectedRoutes(props: Props) {
 
-    const authenticated = props.user !== undefined && props.user !== "anonymous keeper"
+    const authenticated = props.user !== undefined && props.user !== "Not Logged in"
 
     return (
-        authenticated ? <Outlet/> : <Navigate to={"/api/login"}/>
+        authenticated ? <Outlet/> : <Navigate to={"/login"}/>
     );
 }
 
