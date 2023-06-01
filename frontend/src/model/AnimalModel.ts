@@ -1,10 +1,11 @@
 export type Animal = {
-    id: string;
+    id: string,
+    species: string,
+    food: string,
+    foodAmount: number,
+    dayToFeed: string,
+    numberOfAnimals: number,
+    feedStatus: string,
+    animalKeeper: string,
     pictureOfAnimal: string;
-    species: string;
-    numberOfAnimals: number;
-    animalKeeper: string;
-    feedStatus: string;
-    food: string;
-    foodAmount: number;
 }
