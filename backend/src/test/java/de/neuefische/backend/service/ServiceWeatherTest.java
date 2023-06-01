@@ -16,30 +16,14 @@ class ServiceWeatherTest {
         //WHEN
         int actual = ServiceWeather.kelvinToCelsius(kelvin);
         //THEN
-        assertEquals(actual, 26);
+        assertEquals(26, actual);
     }
-
-  /*  @Test
-    void getTemperatureFromApi() {
-        //Mocking the webClient
-        WebClient webClientMock = mock(WebClient.class);
-        WeatherResponse weatherResponse = new WeatherResponse();
-        Weather weather = new Weather();
-        //GIVEN
-        when(webClientMock.get()).thenReturn();
-
-        //Then
-
-    }*/
 
     @Test
     void getTemperatureThrowsException() {
-        //Mocking
         WebClient webClientMock = mock(WebClient.class);
         ServiceWeather serviceWeather = new ServiceWeather();
-
         when(webClientMock.get()).thenReturn(null);
-
         try {
             serviceWeather.getTemperature();
         } catch (NullPointerException e) {
