@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {Animal} from "../model/AnimalModel";
-import {Simulate} from "react-dom/test-utils";
 
 export default function useDay() {
 
@@ -43,7 +42,7 @@ export default function useDay() {
     function changeStatusOfAnimal() {
         console.log(dayOfTheWeek)
         animalList.forEach(animal => {
-            animal.dayToFeed === dayOfTheWeek ? animal.feedStatus = "OPEN" : animal.feedStatus = "NONE"
+            animal.feedStatus = (animal.dayToFeed === dayOfTheWeek) ? "OPEN" : "NONE";
             axios.put("/api/animal/" + animal.id, {
                 id: animal.id,
                 species: animal.species,
