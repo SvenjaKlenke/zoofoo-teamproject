@@ -5,6 +5,9 @@ import AnimalGallery from "./AnimalGallery/AnimalGallery";
 import logo from "./logo.svg";
 import DayBar from "./element/DayBar";
 import AnimalCardDetails from "./AnimalCard/AnimalCardDetails";
+import ProtectedRoutes from "./login/ProtectedRoutes";
+import LoginPage from "./login/LoginPage";
+import useKeeper from "./login/useKeeper";
 import useDay from "./hook/UseDay";
 import Weather from "./weather/Weather";
 import {WeatherModel} from "./model/WeatherModel";
@@ -12,6 +15,7 @@ import axios from "axios";
 
 function App() {
 
+    const {login, user} = useKeeper()
     const {getAllAnimals,dayOfTheWeek, goToPreviousDay,goToNextDay,animalList} = useDay();
     const [temperature, setTemperature] = useState<WeatherModel>({temp: "null"})
 
@@ -50,8 +54,11 @@ function App() {
                 </div>
             </header>
             <Routes>
+                <Route path={"/login"} element={<LoginPage login={login}/>}/>
+            <Route element={<ProtectedRoutes user={user}/>}>
                 <Route path={"/"} element={<AnimalGallery animalsAll={feedingNone} animalsOpen={feedingOpen} animalsFeeding={feedingDoing} animalsFed={feedingDone}/>}/>
                 <Route path={"/animal/:id"} element={<AnimalCardDetails animals={animalList}/>}/>
+            </Route>
             </Routes>
     </div>
   );
