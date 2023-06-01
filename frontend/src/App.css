@@ -9,7 +9,7 @@
   flex-direction: row;
   justify-content: flex-start;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: lightgray;
 }
 
 .App-link {
@@ -32,4 +32,10 @@ ul {
 
 li {
   margin: 0 50px;
+}
+
+.weatherContainer {
+  margin-left: auto;
+  padding: 10px;
+  color: lightgray;
 }
