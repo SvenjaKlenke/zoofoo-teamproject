@@ -8,8 +8,7 @@ export default function useDay() {
     const [dayOfTheWeek, setDayOfTheWeek] = useState<string>(weekdays[0])
     const [animalList, setAnimalList] = useState<Animal[]>([])
 
-    useEffect(()=>{changeStatusOfAnimal},[]);
-
+    useEffect(changeStatusOfAnimal,[]);
     useEffect(changeStatusOfAnimal,[dayOfTheWeek]);
 
     function getAllAnimals() {
