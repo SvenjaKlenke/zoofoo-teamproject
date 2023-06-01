@@ -16,7 +16,7 @@ function App() {
         getAllAnimals()
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [animalList])
+    [dayOfTheWeek])
 
     const feedingNone = animalList.filter(currentAnimal => currentAnimal.feedStatus === "NONE")
     const feedingOpen = animalList.filter(currentAnimal => currentAnimal.feedStatus === "OPEN")

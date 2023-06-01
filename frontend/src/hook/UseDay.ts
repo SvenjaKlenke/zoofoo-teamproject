@@ -8,7 +8,11 @@ export default function useDay() {
     const [dayOfTheWeek, setDayOfTheWeek] = useState<string>(weekdays[0])
     const [animalList, setAnimalList] = useState<Animal[]>([])
 
-    useEffect(changeStatusOfAnimal,[dayOfTheWeek])
+    useEffect(() => {
+            changeStatusOfAnimal()
+        },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [dayOfTheWeek])
 
     function getAllAnimals() {
         axios.get("/api/animal")
