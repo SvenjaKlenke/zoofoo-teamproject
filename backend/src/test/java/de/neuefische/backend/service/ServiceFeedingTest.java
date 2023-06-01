@@ -1,5 +1,6 @@
 package de.neuefische.backend.service;
 
+import de.neuefische.backend.dto.AnimalDTO;
 import de.neuefische.backend.model.Animal;
 import de.neuefische.backend.model.FeedingState;
 import de.neuefische.backend.repository.RepoAnimals;
@@ -13,8 +14,8 @@ import static org.mockito.Mockito.*;
 class ServiceFeedingTest {
 
     RepoAnimals repoAnimals = mock(RepoAnimals.class);
-    Animal animal1 = new Animal(
-            "1",
+    AnimalDTO animal1 = new AnimalDTO(
+            "2",
             "Elephant",
             "fruit",
             10,
@@ -33,7 +34,7 @@ class ServiceFeedingTest {
 
         ));
         //WHEN
-        List<Animal> actual = serviceFeeding.getAllAnimals();
+        List<AnimalDTO> actual = serviceFeeding.getAllAnimals();
 
         //THEN
         verify(repoAnimals).findAll();
@@ -47,7 +48,7 @@ class ServiceFeedingTest {
             //GIVEN >> animal1
             //WHEN
             when(repoAnimals.save(animal1)).thenReturn(animal1);
-            Animal actual = serviceFeeding.saveAnimal(animal1);
+            AnimalDTO actual = serviceFeeding.saveAnimal(animal1);
             //THEN
             assertEquals(animal1,actual);
         }

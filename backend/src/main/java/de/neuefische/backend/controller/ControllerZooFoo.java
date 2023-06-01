@@ -1,5 +1,6 @@
 package de.neuefische.backend.controller;
 
+import de.neuefische.backend.dto.AnimalDTO;
 import de.neuefische.backend.model.Animal;
 import de.neuefische.backend.service.ServiceFeeding;
 import lombok.RequiredArgsConstructor;
@@ -17,20 +18,20 @@ public class ControllerZooFoo {
     private final ServiceFeeding serviceFeeding;
 
     @GetMapping("/animal")
-    public List<Animal> getAllAnimals() {
+    public List<AnimalDTO> getAllAnimals() {
         return serviceFeeding.getAllAnimals();
     }
 
     @PostMapping("/animal")
-    public Animal postAnimal(@RequestBody Animal animal){
+    public AnimalDTO postAnimal(@RequestBody AnimalDTO animal){
         return serviceFeeding.saveAnimal(animal);
     }
+
     @PutMapping({"animal/{id}"})
-    public Animal changeAnimalStatus(@PathVariable String id, @RequestBody Animal animal){
+    public AnimalDTO changeAnimalStatus(@PathVariable String id, @RequestBody AnimalDTO animal){
         if (!animal.getId().equals(id)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The id in the url does not match the request body's id");
         }
         return serviceFeeding.saveAnimal(animal);
     }
-
 }
