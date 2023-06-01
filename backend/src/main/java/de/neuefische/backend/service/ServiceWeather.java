@@ -19,8 +19,7 @@ public class ServiceWeather {
         return (int) Math.round(celsius);
     }
 
-    public Weather getTemperature() {
-
+ /*   public Weather getTemperature() {
         WeatherResponse response =
                 Objects.requireNonNull(webClient.get())
                         .uri("")
@@ -36,5 +35,24 @@ public class ServiceWeather {
             return response.getMain();
         }
         throw new NullPointerException("Failed to retrieve temperature data");
+    }*/
+
+    public Weather getTemperature() {
+        WeatherResponse response = Objects.requireNonNull(webClient.get())
+                .uri("")
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .retrieve()
+                .toEntity(WeatherResponse.class)
+                .blockOptional()
+                .orElseThrow(() -> new NullPointerException("Failed to retrieve temperature data"))
+                .getBody();
+
+        double temperatureInKelvin = response.getMain().getTemp();
+        int temperatureInCelsius = kelvinToCelsius(temperatureInKelvin);
+        response.getMain().setTemp(temperatureInCelsius);
+
+        return response.getMain();
     }
+
+
 }
