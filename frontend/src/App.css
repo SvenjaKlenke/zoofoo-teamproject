@@ -39,3 +39,10 @@ li {
   padding: 10px;
   color: lightgray;
 }
+
+.gallery-container{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 20px;
+}
