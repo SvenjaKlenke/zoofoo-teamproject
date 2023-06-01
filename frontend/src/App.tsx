@@ -12,7 +12,7 @@ function App() {
 
     const {getAllAnimals,dayOfTheWeek, goToPreviousDay,goToNextDay,animalList} = useDay();
 
-    useEffect(getAllAnimals, [dayOfTheWeek])
+    useEffect(getAllAnimals, [animalList])
 
     const feedingNone = animalList.filter(currentAnimal => currentAnimal.feedStatus === "NONE")
     const feedingOpen = animalList.filter(currentAnimal => currentAnimal.feedStatus === "OPEN")
