@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import AnimalCard from "../AnimalCard/AnimalCard";
 import {Animal} from "../model/AnimalModel";
 import "./AnimalGallery.css";
