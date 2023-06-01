@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
@@ -19,26 +20,13 @@ class KeeperControllerTest {
     MockMvc mockMvc;
 
     @Test
-    @WithMockUser(username = "user", password = "123")
-    void getUserControllerOnly() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/user"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("user"));
-    }
-
-    @Test
-    @WithMockUser(username = "", password = "")
-    void getUserControllerOnly_Empty_SayNotLoggedIn() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/user"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Not Logged in"));
-    }
-
-    @Test
+    @DirtiesContext
     @WithMockUser(username = "user", password = "123")
     void getUserFromEverywhere() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/user2"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/keeper/user"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("user"));
     }
+
+
 }

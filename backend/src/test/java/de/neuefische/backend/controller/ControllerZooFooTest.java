@@ -24,7 +24,6 @@ class ControllerZooFooTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/animal"))
                 .andExpect(status().isOk())
                 .andExpect(content().json("[]"));
-
     }
 
 }
