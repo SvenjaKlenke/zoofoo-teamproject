@@ -17,3 +17,7 @@ Before running this program, make sure you have completed the following steps:
 - Click "Create Collection" and choose the name for the collection (`Animals`)
 - Click "Add Data" and choose "Import JSON oder CSV file"
 - Use the file backend/src/test/resources/Animals.json
+- Click "Create Collection" and choose the name for the collection (`Keepers`)
+- Click "Add Data" and choose "Import JSON oder CSV file"
+- Use the file backend/src/test/resources/Keepers.json
+- Username = Test, Password = test
