@@ -10,6 +10,7 @@ type Props = {
 }
 function AnimalGallery(props: Props) {
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {props.getAllAnimals()},[props.dayOfTheWeek])
 
     return (
