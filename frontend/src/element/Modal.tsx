@@ -16,24 +16,26 @@ function Modal(props: Props) {
                 <div className={"title"}>
                     <h4>Add a new animal to the zoo.</h4>
                 </div>
-                <div className={"body"}>
+                <form>
+                    <div className={"body"}>
                         <label>Species</label>
-                        <form><input type="species" placeholder={"What's the name?"}/></form>
+                        <input type="species" placeholder={"What's the name?"}/>
                         <label>Food</label>
-                        <form><input type="food" placeholder={"What kind of food?"}/></form>
+                        <input type="food" placeholder={"What kind of food?"}/>
                         <label>Food Amount</label>
-                        <form><input type="foodAmount" placeholder={"How much in kg?"}/></form>
+                        <input type="foodAmount" placeholder={"How much in kg?"}/>
                         <label>Feeding Day</label>
                         <select>{props.weekdays.map((day)=><option key={day} value={day}>{day}</option>)}</select>
                         <label>No. of Animals</label>
-                        <form><input type="numberOfAnimals" placeholder={"How many animals?"}/></form>
+                        <input type="numberOfAnimals" placeholder={"How many animals?"}/>
                         <label>URL of picture</label>
-                        <form><input type="pictureOfAnimal" placeholder={"Where is the picture?"}/></form>
-                </div>
-                <div className={"footer"}>
-                    <button onClick={()=>props.closeModal(false)} id={"cancelBtn"}>Cancel</button>
-                    <button>Add</button>
-                </div>
+                        <input type="pictureOfAnimal" placeholder={"Where is the picture?"}/>
+                    </div>
+                    <div className={"footer"}>
+                        <button onClick={()=>props.closeModal(false)} id={"cancelBtn"}>Cancel</button>
+                        <button>Add</button>
+                    </div>
+                </form>
 
             </div>
         </div>
