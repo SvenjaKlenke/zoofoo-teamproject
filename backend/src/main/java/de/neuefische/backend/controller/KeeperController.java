@@ -1,6 +1,5 @@
 package de.neuefische.backend.controller;
 
-import de.neuefische.backend.model.Animal;
 import de.neuefische.backend.model.Keeper;
 import de.neuefische.backend.service.ServiceKeeper;
 import lombok.RequiredArgsConstructor;
