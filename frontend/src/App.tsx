@@ -63,9 +63,9 @@ function App() {
                         <Route path="/" element={(
                             <div className="gallery-container">
                                 <AnimalGallery animalsAll={feedingNone} getAllAnimals={getAllAnimals} dayOfTheWeek={dayOfTheWeek}  keepersAll={keeper}/>
-                                <ToFeedGallery animalsOpen={feedingOpen} />
-                                <FeedingGallery animalsFeeding={feedingDoing} />
-                                <FedGallery animalsFed={feedingDone} />
+                                <ToFeedGallery animalsOpen={feedingOpen}  keepersAll={keeper}/>
+                                <FeedingGallery animalsFeeding={feedingDoing}  keepersAll={keeper}/>
+                                <FedGallery animalsFed={feedingDone} keepersAll={keeper} />
                             </div>
                         )} />
                         <Route path="animal/:id" element={<AnimalCardDetails animals={animalList} />} />
