@@ -1,40 +1,46 @@
-[{
-  "_id": {
-    "$oid": "646d2587d0bdee35983a1e0d"
+[
+  {
+    "_id": {
+      "$oid": "646d2587d0bdee35983a1e0d"
+    },
+    "species": "Elephants",
+    "food": "Leaves",
+    "foodAmount": 30,
+    "dayToFeed": "Tuesday",
+    "numberOfAnimals": 3,
+    "feedStatus": "NONE",
+    "animalKeeper": "Amelie",
+    "pictureOfAnimal": "https://res.cloudinary.com/dxkqk5znf/image/upload/v1684946065/pexels-abhi-shek-15030715_tsrcpe.jpg",
+    "_class": "de.neuefische.backend.model.Animal"
   },
-  "species": "Elephants",
-  "food": "Leaves",
-  "foodAmount": 30,
-  "dayToFeed": "Tuesday",
-  "numberOfAnimals": 3,
-  "feedStatus": "NONE",
-  "animalKeeper": "Amelie",
-  "pictureOfAnimal": "https://res.cloudinary.com/dxkqk5znf/image/upload/v1684946065/pexels-abhi-shek-15030715_tsrcpe.jpg"
-},{
-  "_id": {
-    "$oid": "646d2613d0bdee35983a1e0e"
+  {
+    "_id": {
+      "$oid": "646d2613d0bdee35983a1e0e"
+    },
+    "species": "Ostriches",
+    "food": "Grass",
+    "foodAmount": 30,
+    "dayToFeed": "Monday",
+    "numberOfAnimals": 8,
+    "feedStatus": "NONE",
+    "animalKeeper": "Kristina",
+    "pictureOfAnimal": "https://res.cloudinary.com/dxkqk5znf/image/upload/v1684946049/pexels-adriaan-greyling-752035_absf6w.jpg",
+    "_class": "de.neuefische.backend.model.Animal"
   },
-  "species": "Ostriches",
-  "food": "Grass",
-  "foodAmount": 30,
-  "dayToFeed": "Monday",
-  "numberOfAnimals": 8,
-  "feedStatus": "DOING",
-  "animalKeeper": "Kristina",
-  "pictureOfAnimal": "https://res.cloudinary.com/dxkqk5znf/image/upload/v1684946049/pexels-adriaan-greyling-752035_absf6w.jpg"
-},{
-  "_id": {
-    "$oid": "646d2676d0bdee35983a1e0f"
+  {
+    "_id": {
+      "$oid": "646d2676d0bdee35983a1e0f"
+    },
+    "species": "Giraffes",
+    "food": "Leaves",
+    "foodAmount": 20,
+    "dayToFeed": "Tuesday",
+    "numberOfAnimals": 5,
+    "feedStatus": "NONE",
+    "animalKeeper": "Svenja",
+    "pictureOfAnimal": "https://res.cloudinary.com/dxkqk5znf/image/upload/v1684946055/pexels-guillaume-meurice-3721306_tbphhu.jpg",
+    "_class": "de.neuefische.backend.model.Animal"
   },
-  "species": "Giraffes",
-  "food": "Leaves",
-  "foodAmount": 20,
-  "dayToFeed": "Tuesday",
-  "numberOfAnimals": 5,
-  "feedStatus": "NONE",
-  "animalKeeper": "Svenja",
-  "pictureOfAnimal": "https://res.cloudinary.com/dxkqk5znf/image/upload/v1684946055/pexels-guillaume-meurice-3721306_tbphhu.jpg"
-},
   {
     "_id": {
       "$oid": "646d269bd0bdee35983a1e10"
@@ -44,9 +50,10 @@
     "foodAmount": 10,
     "dayToFeed": "Wednesday",
     "numberOfAnimals": 3,
-    "feedStatus": "DONE",
+    "feedStatus": "NONE",
     "animalKeeper": "Richard",
-    "pictureOfAnimal": "https://res.cloudinary.com/dxkqk5znf/image/upload/v1684946051/pexels-hemprakash-singh-8885660_l9060a.jpg"
+    "pictureOfAnimal": "https://res.cloudinary.com/dxkqk5znf/image/upload/v1684946051/pexels-hemprakash-singh-8885660_l9060a.jpg",
+    "_class": "de.neuefische.backend.model.Animal"
   },
   {
     "_id": {
@@ -57,22 +64,25 @@
     "foodAmount": 10,
     "dayToFeed": "Friday",
     "numberOfAnimals": 8,
-    "feedStatus": "DOING",
+    "feedStatus": "NONE",
     "animalKeeper": "Amelie",
-    "pictureOfAnimal": "https://res.cloudinary.com/dxkqk5znf/image/upload/v1684946046/pexels-lachlan-ross-5967959_auhqyu.jpg"
-  },{
-  "_id": {
-    "$oid": "646d26ebd0bdee35983a1e12"
+    "pictureOfAnimal": "https://res.cloudinary.com/dxkqk5znf/image/upload/v1685101618/pexels-lachlan-ross-5967959_2_rqbxrn.jpg",
+    "_class": "de.neuefische.backend.model.Animal"
   },
-  "species": "Bears",
-  "food": "Fruit",
-  "foodAmount": 5,
-  "dayToFeed": "Thursday",
-  "numberOfAnimals": 2,
-  "feedStatus": "NONE",
-  "animalKeeper": "Kristina",
-  "pictureOfAnimal": "https://res.cloudinary.com/dxkqk5znf/image/upload/v1684946045/pexels-luis-ribeiro-14125124_c82en6.jpg"
-},
+  {
+    "_id": {
+      "$oid": "646d26ebd0bdee35983a1e12"
+    },
+    "species": "Bears",
+    "food": "Fruit",
+    "foodAmount": 5,
+    "dayToFeed": "Thursday",
+    "numberOfAnimals": 2,
+    "feedStatus": "NONE",
+    "animalKeeper": "Kristina",
+    "pictureOfAnimal": "https://res.cloudinary.com/dxkqk5znf/image/upload/v1684946045/pexels-luis-ribeiro-14125124_c82en6.jpg",
+    "_class": "de.neuefische.backend.model.Animal"
+  },
   {
     "_id": {
       "$oid": "646d2834d0bdee35983a1e13"
@@ -82,9 +92,10 @@
     "foodAmount": 8,
     "dayToFeed": "Friday",
     "numberOfAnimals": 6,
-    "feedStatus": "DONE",
+    "feedStatus": "NONE",
     "animalKeeper": "Svenja",
-    "pictureOfAnimal": "https://res.cloudinary.com/dxkqk5znf/image/upload/v1684946048/pexels-rachel-claire-4577842_kyvsnn.jpg"
+    "pictureOfAnimal": "https://res.cloudinary.com/dxkqk5znf/image/upload/v1684946048/pexels-rachel-claire-4577842_kyvsnn.jpg",
+    "_class": "de.neuefische.backend.model.Animal"
   },
   {
     "_id": {
@@ -95,7 +106,9 @@
     "foodAmount": 5,
     "dayToFeed": "Thursday",
     "numberOfAnimals": 8,
-    "feedStatus": "OPEN",
+    "feedStatus": "NONE",
     "animalKeeper": "Richard",
-    "pictureOfAnimal": "https://res.cloudinary.com/dxkqk5znf/image/upload/v1684946049/pexels-maria-charizani-5322397_zz9wkd.jpg"
-  }]
+    "pictureOfAnimal": "https://res.cloudinary.com/dxkqk5znf/image/upload/v1684946049/pexels-maria-charizani-5322397_zz9wkd.jpg",
+    "_class": "de.neuefische.backend.model.Animal"
+  }
+]
