@@ -28,5 +28,14 @@ class KeeperControllerTest {
                 .andExpect(content().string("user"));
     }
 
+    @Test
+    @DirtiesContext
+    @WithMockUser(username = "user", password = "1234")
+    void getAllKeepers_returnAllKeepersAsList_andStatusCode200() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/keeper"))
+                .andExpect(status().isOk())
+                .andExpect(content().json("[]"));
+    }
+
 
 }
