@@ -3,11 +3,12 @@ import "./AnimalCard.css";
 import {Animal} from "../model/AnimalModel";
 import {useNavigate} from "react-router-dom";
 import {Keeper} from "../model/KeeperModel";
+import DropdownMenu from "../element/DropdownMenu";
 
 
 type Props = {
     animals: Animal
-    keeper: Keeper
+    keeper: Keeper []
 }
 
 
@@ -26,14 +27,7 @@ function AnimalCard(props:Props) {
             <p>Amount: {props.animals.numberOfAnimals}</p>
             <div className="buttonContainer">
                 <button className="button" onClick={onClickHandlerForDetails}>DETAILS</button>
-                <select className="button">
-                    <option defaultValue="keeper">select Keeper</option>
-                    <option value="1">Amelie</option>
-                    <option value="2">Kristina</option>
-                    <option value="3">Richard</option>
-                    <option value="4">Svenja</option>
-                    <option value="5">Admin</option>
-                </select>
+                <DropdownMenu keeper={props.keeper}/>
             </div>
         </div>
     );
