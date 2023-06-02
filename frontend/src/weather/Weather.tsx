@@ -12,7 +12,7 @@ function Weather(props: Props) {
             {props.temperature.temp !== "null" ? (
                 <div>
                     <h3>actual temperature:</h3>
-                    <p>{props.temperature.temp} *C</p>
+                    <p>{props.temperature.temp} °C</p>
                 </div>
             ) : (
                 <p>load temperature...</p>
