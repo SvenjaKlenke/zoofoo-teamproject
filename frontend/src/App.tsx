@@ -16,6 +16,7 @@ import Modal from "./element/Modal";
 import ToFeedGallery from "./AnimalGallery/ToFeedGallery";
 import FedGallery from "./AnimalGallery/FedGallery";
 import FeedingGallery from "./AnimalGallery/FeedingGallery";
+import UseKeepers from "./hook/UseKeepers";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
     const {getAllAnimals,dayOfTheWeek, goToPreviousDay,goToNextDay,animalList} = useDay({weekdays});
     const [temperature, setTemperature] = useState<WeatherModel>({temp: "null"})
     const[openModal, setOpenModal] = useState<boolean>(false);
+    const {keeper}= UseKeepers()
 
 
     const feedingNone = animalList.filter(currentAnimal => currentAnimal.feedStatus === "NONE")
@@ -60,7 +62,7 @@ function App() {
                 <Route element={<ProtectedRoutes user={user} />}>
                         <Route path="/" element={(
                             <div className="gallery-container">
-                                <AnimalGallery animalsAll={feedingNone} getAllAnimals={getAllAnimals} dayOfTheWeek={dayOfTheWeek} />
+                                <AnimalGallery animalsAll={feedingNone} getAllAnimals={getAllAnimals} dayOfTheWeek={dayOfTheWeek}  keepersAll={keeper}/>
                                 <ToFeedGallery animalsOpen={feedingOpen} />
                                 <FeedingGallery animalsFeeding={feedingDoing} />
                                 <FedGallery animalsFed={feedingDone} />

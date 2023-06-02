@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import {Keeper} from "../model/KeeperModel";
 
 
-export default function ChangeKeepers() {
+export default function UseKeepers() {
 
     const [keeper, setKeeper] = useState<Keeper[]>([])
 

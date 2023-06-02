@@ -10,9 +10,6 @@ type Props = {
     animals: Animal
     keeper: Keeper []
 }
-
-
-
 function AnimalCard(props:Props) {
     const navigate = useNavigate();
 
