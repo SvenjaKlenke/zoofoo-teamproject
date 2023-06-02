@@ -1,16 +1,17 @@
 import React from 'react';
-import {Keeper} from "../model/KeeperModel";
+import UseKeepers from "../hook/UseKeepers";
+function DropdownMenu() {
 
-type Props = {
-    keeper: Keeper[]
-}
-function DropdownMenu(props: Props) {
+
+    const {getAllKeepers,keeper}= UseKeepers()
+
+
     return (
-        <select className="button">
+        <select className="button" onFocus={getAllKeepers}>
             <option defaultValue="keeper">select Keeper</option>
-            {props.keeper.map(keepers => (
+            {keeper.map(keepers => (
                 <option key={keepers.id} >
-                    {keepers.name}
+                    {keepers.username}
                 </option>
             ))}
         </select>

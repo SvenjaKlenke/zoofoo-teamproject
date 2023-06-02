@@ -16,18 +16,13 @@ import Modal from "./element/Modal";
 import ToFeedGallery from "./AnimalGallery/ToFeedGallery";
 import FedGallery from "./AnimalGallery/FedGallery";
 import FeedingGallery from "./AnimalGallery/FeedingGallery";
-import UseKeepers from "./hook/UseKeepers";
-
-
 function App() {
 
     const weekdays: string[] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     const {login, user} = useKeeper()
     const {getAllAnimals,dayOfTheWeek, goToPreviousDay,goToNextDay,animalList} = useDay({weekdays});
     const [temperature, setTemperature] = useState<WeatherModel>({temp: "null"})
-    const[openModal, setOpenModal] = useState<boolean>(false);
-    const {keeper}= UseKeepers()
-
+    const[openModal, setOpenModal] = useState<boolean>(false)
 
     const feedingNone = animalList.filter(currentAnimal => currentAnimal.feedStatus === "NONE")
     const feedingOpen = animalList.filter(currentAnimal => currentAnimal.feedStatus === "OPEN")
@@ -62,10 +57,10 @@ function App() {
                 <Route element={<ProtectedRoutes user={user} />}>
                         <Route path="/" element={(
                             <div className="gallery-container">
-                                <AnimalGallery animalsAll={feedingNone} getAllAnimals={getAllAnimals} dayOfTheWeek={dayOfTheWeek}  keepersAll={keeper}/>
-                                <ToFeedGallery animalsOpen={feedingOpen}  keepersAll={keeper}/>
-                                <FeedingGallery animalsFeeding={feedingDoing}  keepersAll={keeper}/>
-                                <FedGallery animalsFed={feedingDone} keepersAll={keeper} />
+                                <AnimalGallery animalsAll={feedingNone} getAllAnimals={getAllAnimals} dayOfTheWeek={dayOfTheWeek}/>
+                                <ToFeedGallery animalsOpen={feedingOpen}/>
+                                <FeedingGallery animalsFeeding={feedingDoing}/>
+                                <FedGallery animalsFed={feedingDone}/>
                             </div>
                         )} />
                         <Route path="animal/:id" element={<AnimalCardDetails animals={animalList} />} />
