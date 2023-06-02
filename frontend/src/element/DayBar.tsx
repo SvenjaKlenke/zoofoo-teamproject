@@ -1,14 +1,12 @@
 import React from 'react';
 import {Animal} from "../model/AnimalModel";
 
-
 type Props  = {
     animals: Animal[],
     currentDay: string,
     nextDay: () => void
     prevDay: () => void
 }
-
 export default function DayBar(props:Props) {
 
     return (
@@ -18,7 +16,6 @@ export default function DayBar(props:Props) {
                 <button onClick={props.prevDay}>PREV</button>
                 <button onClick={props.nextDay}>NEXT</button>
             </div>
-
         </>
     );
 }

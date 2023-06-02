@@ -2,10 +2,12 @@ import React from 'react';
 import "./AnimalCard.css";
 import {Animal} from "../model/AnimalModel";
 import {useNavigate} from "react-router-dom";
+import {Keeper} from "../model/KeeperModel";
 
 
 type Props = {
     animals: Animal
+    keeper: Keeper
 }
 
 
