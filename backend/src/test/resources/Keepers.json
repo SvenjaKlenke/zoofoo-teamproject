@@ -1,0 +1,37 @@
+[
+  {
+    "_id": {
+      "$oid": "6475ed206ac7305b95810994"
+    },
+    "username": "Amelie",
+    "password": "$argon2id$v=19$m=16384,t=2,p=1$heDr3fGyK0YvPfLW6DAT+A$ezghL8FHZU4AUpiCR3pklkSGfBSu0cyfjyegBILnfSY"
+  },
+  {
+    "_id": {
+      "$oid": "6475f42f6ac7305b95810995"
+    },
+    "username": "Svenja",
+    "password": "$argon2id$v=19$m=16384,t=2,p=1$dCL9+LeX21QDHew7gcDa/Q$gZxL29X0/5KzLH0bvtLCYAqsUiJAFyIuxf4O+4wVTUs"
+  },
+  {
+    "_id": {
+      "$oid": "647606166ac7305b95810996"
+    },
+    "username": "Kristina",
+    "password": "$argon2id$v=19$m=16384,t=2,p=1$M/4VXj6UbhTSGv9vP/xbgQ$O4UwsIpYkGVQbWTTyTShgBI2hwRmdlq4JyQiDIgsX0w"
+  },
+  {
+    "_id": {
+      "$oid": "647606236ac7305b95810997"
+    },
+    "username": "Richard",
+    "password": "$argon2id$v=19$m=16384,t=2,p=1$V/9Wedh+VHwQaPiKiI11Cw$DZj7dqTqKknenqouvrj0psXh35+RcYka3lXvgtz0ezk"
+  },
+  {
+    "_id": {
+      "$oid": "6478ca6c6ac7305b9581099a"
+    },
+    "username": "Test",
+    "password": "$argon2id$v=19$m=16384,t=2,p=1$WzAyPZTnKNIMnNPSe5Jggw$n9UZ1yTF5VrCjJET4Nk6X8HdjOHV7E4JdRV5rSbc2z0"
+  }
+]
