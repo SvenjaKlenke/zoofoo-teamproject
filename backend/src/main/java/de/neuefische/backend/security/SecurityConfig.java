@@ -2,7 +2,7 @@ package de.neuefische.backend.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -32,10 +32,19 @@ public class SecurityConfig {
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                         .csrfTokenRequestHandler(requestHandler))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS))
-                .httpBasic(Customizer.withDefaults())
-                .authorizeHttpRequests()
-                .requestMatchers("/api/**").authenticated()
-                .anyRequest().permitAll()
-                .and().build();
+                .httpBasic(basic -> basic.authenticationEntryPoint(
+                        (request, response, authException) ->
+                                response.sendError(
+                                        HttpStatus.UNAUTHORIZED.value(),
+                                        HttpStatus.UNAUTHORIZED.getReasonPhrase()
+                                )))
+                .authorizeHttpRequests(auth -> {
+                    auth.requestMatchers(
+                            ("/api/temperature")).permitAll();
+                    auth.requestMatchers(
+                            ("/api/**")).authenticated();
+                    auth.anyRequest().permitAll();
+                })
+                .build();
     }
 }

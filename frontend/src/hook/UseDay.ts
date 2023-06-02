@@ -2,17 +2,16 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {Animal} from "../model/AnimalModel";
 
-export default function useDay() {
+type Props={
+    weekdays: string[];
+}
+export default function useDay(props: Props) {
 
-    const weekdays: string[] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-    const [dayOfTheWeek, setDayOfTheWeek] = useState<string>(weekdays[0])
+    const [dayOfTheWeek, setDayOfTheWeek] = useState<string>(props.weekdays[0])
     const [animalList, setAnimalList] = useState<Animal[]>([])
 
-    useEffect(() => {
-            changeStatusOfAnimal()
-        },
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        [dayOfTheWeek])
+    useEffect(changeStatusOfAnimal,[])
+    useEffect(changeStatusOfAnimal,[dayOfTheWeek])
 
     function getAllAnimals() {
         axios.get("/api/animal")
@@ -22,22 +21,22 @@ export default function useDay() {
     }
 
     function goToPreviousDay() {
-        if (dayOfTheWeek === weekdays[0]) {
-            setDayOfTheWeek(weekdays[6])
-        } else for (let i = 1; i < weekdays.length-1; i++) {
-            if (weekdays[i] === dayOfTheWeek) {
-                setDayOfTheWeek(weekdays[i-1])
+        if (dayOfTheWeek === props.weekdays[0]) {
+            setDayOfTheWeek(props.weekdays[6])
+        } else for (let i = 1; i < props.weekdays.length-1; i++) {
+            if (props.weekdays[i] === dayOfTheWeek) {
+                setDayOfTheWeek(props.weekdays[i-1])
             }
         }
         changeStatusOfAnimal()
     }
 
     function goToNextDay() {
-        if (dayOfTheWeek === weekdays[6]) {
-            setDayOfTheWeek(weekdays[0])
-        } else for (let i = 0; i < weekdays.length-1; i++) {
-            if (weekdays[i] === dayOfTheWeek) {
-                setDayOfTheWeek(weekdays[i+1]);
+        if (dayOfTheWeek === props.weekdays[6]) {
+            setDayOfTheWeek(props.weekdays[0])
+        } else for (let i = 0; i < props.weekdays.length-1; i++) {
+            if (props.weekdays[i] === dayOfTheWeek) {
+                setDayOfTheWeek(props.weekdays[i+1]);
             }
         }
         changeStatusOfAnimal()

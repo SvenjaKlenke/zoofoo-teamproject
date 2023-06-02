@@ -28,27 +28,22 @@ class ServiceFeedingTest {
     @Test
     void getAllAnimals_shouldReturnAListOfAllAnimals() {
         //GIVEN
-        when(repoAnimals.findAll()).thenReturn(List.of(
-                animal1
-
-        ));
+        when(repoAnimals.findAll()).thenReturn(List.of(animal1));
         //WHEN
         List<Animal> actual = serviceFeeding.getAllAnimals();
 
         //THEN
         verify(repoAnimals).findAll();
-        assertEquals(actual, List.of(
-                animal1
-        ));
+        assertEquals(actual, List.of(animal1));
     }
 
     @Test
     void saveAnimal() {
-            //GIVEN >> animal1
-            //WHEN
-            when(repoAnimals.save(animal1)).thenReturn(animal1);
-            Animal actual = serviceFeeding.saveAnimal(animal1);
-            //THEN
-            assertEquals(animal1,actual);
-        }
+        //GIVEN >> animal1
+        //WHEN
+        when(repoAnimals.save(animal1)).thenReturn(animal1);
+        Animal actual = serviceFeeding.saveAnimal(animal1);
+        //THEN
+        assertEquals(animal1,actual);
+    }
 }
