@@ -1,6 +1,5 @@
 package de.neuefische.backend.controller;
 
-import de.neuefische.backend.dto.AnimalDTO;
 import de.neuefische.backend.model.Animal;
 import de.neuefische.backend.model.Weather;
 import de.neuefische.backend.service.ServiceFeeding;
@@ -21,17 +20,16 @@ public class ControllerZooFoo {
     private final ServiceWeather serviceWeather;
 
     @GetMapping("/animal")
-    public List<AnimalDTO> getAllAnimals() {
+    public List<Animal> getAllAnimals() {
         return serviceFeeding.getAllAnimals();
     }
 
     @PostMapping("/animal")
-    public AnimalDTO postAnimal(@RequestBody AnimalDTO animal){
+    public Animal postAnimal(@RequestBody Animal animal){
         return serviceFeeding.saveAnimal(animal);
     }
-
     @PutMapping({"animal/{id}"})
-    public AnimalDTO changeAnimalStatus(@PathVariable String id, @RequestBody AnimalDTO animal){
+    public Animal changeAnimalStatus(@PathVariable String id, @RequestBody Animal animal){
         if (!animal.getId().equals(id)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The id in the url does not match the request body's id");
         }

@@ -1,6 +1,5 @@
 package de.neuefische.backend.service;
 
-import de.neuefische.backend.dto.AnimalDTO;
 import de.neuefische.backend.model.Animal;
 import de.neuefische.backend.repository.RepoAnimals;
 import lombok.RequiredArgsConstructor;
@@ -14,11 +13,11 @@ public class ServiceFeeding {
 
     private final RepoAnimals repoAnimals;
 
-    public List<AnimalDTO> getAllAnimals() {
+    public List<Animal> getAllAnimals() {
         return repoAnimals.findAll();
     }
 
-    public AnimalDTO saveAnimal(AnimalDTO animal){
+    public Animal saveAnimal(Animal animal){
         return repoAnimals.save(animal);
     }
 }

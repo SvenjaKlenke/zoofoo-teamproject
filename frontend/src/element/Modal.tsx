@@ -26,7 +26,7 @@ function Modal(props: Props) {
                         <label>Feeding Day</label>
                         <select>{props.weekdays.map((day)=><option key={day} value={day}>{day}</option>)}</select>
                         <label>No. of Animals</label>
-                        <form><input type="numberOfAnimals" placeholder={"How much animals?"}/></form>
+                        <form><input type="numberOfAnimals" placeholder={"How many animals?"}/></form>
                         <label>URL of picture</label>
                         <form><input type="pictureOfAnimal" placeholder={"Where is the picture?"}/></form>
                 </div>
