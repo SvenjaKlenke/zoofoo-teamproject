@@ -10,7 +10,7 @@ export default function UseKeepers() {
     useEffect(getAllKeepers, [])
 
     function getAllKeepers() {
-             axios.get("/api/keeper")
+             axios.get("/keeper")
                 .then((response) => {
                     setKeeper(response.data)
                 })
