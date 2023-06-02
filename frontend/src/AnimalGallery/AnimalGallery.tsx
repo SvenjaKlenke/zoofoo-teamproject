@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import "./AnimalGallery.css";
 import {Animal} from "../model/AnimalModel";
 import AnimalCard from "../AnimalCard/AnimalCard";
 
 type Props = {
     animalsAll: Animal[],
+    getAllAnimals: ()=>void,
+    dayOfTheWeek:string
 }
 function AnimalGallery(props: Props) {
+
+    useEffect(() => {props.getAllAnimals()},[props.dayOfTheWeek])
 
     return (
         <div className="Gallery-AnimalCard">

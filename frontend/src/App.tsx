@@ -27,12 +27,6 @@ function App() {
     const[openModal, setOpenModal] = useState<boolean>(false);
 
 
-    useEffect(() => {
-        getAllAnimals()
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [dayOfTheWeek])
-
     const feedingNone = animalList.filter(currentAnimal => currentAnimal.feedStatus === "NONE")
     const feedingOpen = animalList.filter(currentAnimal => currentAnimal.feedStatus === "OPEN")
     const feedingDoing = animalList.filter(currentAnimal => currentAnimal.feedStatus === "DOING")
@@ -58,9 +52,7 @@ function App() {
                     <li>Order</li>
                 </ul>
                 <div className="weatherContainer">
-                    <Routes>
-                        <Route path={"/"} element={<Weather temperature={temperature}/>}/>
-                    </Routes>
+                    <Weather temperature={temperature}/>
                 </div>
             </header>
             <Routes>
@@ -68,7 +60,7 @@ function App() {
                 <Route element={<ProtectedRoutes user={user} />}>
                         <Route path="/" element={(
                             <div className="gallery-container">
-                                <AnimalGallery animalsAll={feedingNone} />
+                                <AnimalGallery animalsAll={feedingNone} getAllAnimals={getAllAnimals} dayOfTheWeek={dayOfTheWeek} />
                                 <ToFeedGallery animalsOpen={feedingOpen} />
                                 <FeedingGallery animalsFeeding={feedingDoing} />
                                 <FedGallery animalsFed={feedingDone} />
