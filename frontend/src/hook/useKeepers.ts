@@ -7,7 +7,7 @@ export default function UseKeepers() {
     const [keeper, setKeeper] = useState<Keeper[]>([])
 
     function getAllKeepers() {
-        axios.get("/api/keeper")
+        axios.get("/keeper")
             .then((response) => {
                 setKeeper(response.data)
             })

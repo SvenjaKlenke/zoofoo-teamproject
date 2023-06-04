@@ -13,7 +13,7 @@ function DropdownMenu(props: Props) {
         <select className="button">
             {props.keeper.map(keepers => (
                 <option key={keepers.id}>
-                    {keepers.name}
+                    {keepers.username}
                 </option>
             ))}
         </select>
