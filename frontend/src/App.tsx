@@ -25,8 +25,6 @@ function App() {
     const {getAllAnimals,dayOfTheWeek, goToPreviousDay,goToNextDay,animalList} = useDay({weekdays});
     const [temperature, setTemperature] = useState<WeatherModel>({temp: "null"})
     const[openModal, setOpenModal] = useState<boolean>(false);
-
-
     const feedingNone = animalList.filter(currentAnimal => currentAnimal.feedStatus === "NONE")
     const feedingOpen = animalList.filter(currentAnimal => currentAnimal.feedStatus === "OPEN")
     const feedingDoing = animalList.filter(currentAnimal => currentAnimal.feedStatus === "DOING")
