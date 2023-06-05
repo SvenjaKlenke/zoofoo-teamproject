@@ -56,10 +56,9 @@ export default function useDay(props: Props) {
                 feedStatus: animal.feedStatus,
                 animalKeeper: animal.animalKeeper,
                 pictureOfAnimal: animal.pictureOfAnimal
-            }).then(() => {
-                getAllAnimals()
             })
-        })
+        });
+        getAllAnimals()
     }
 
 
