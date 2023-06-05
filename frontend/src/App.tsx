@@ -30,7 +30,6 @@ function App() {
         changeStatusOfAnimal
     } = useDay({weekdays});
     const [temperature, setTemperature] = useState<WeatherModel>({temp: "null"})
-    const[openModal, setOpenModal] = useState<boolean>(false);
     const feedingNone = animalList.filter(currentAnimal => currentAnimal.feedStatus === "NONE")
     const feedingOpen = animalList.filter(currentAnimal => currentAnimal.feedStatus === "OPEN")
     const feedingDoing = animalList.filter(currentAnimal => currentAnimal.feedStatus === "DOING")
@@ -44,6 +43,8 @@ function App() {
     }
 
     useEffect(getTemperature, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useEffect(getAllAnimals, [user])
     return (
         <div className="App">
             <header className="App-header">
