@@ -1,13 +1,10 @@
 import React from 'react';
-import axios from "axios/index";
-import {Keeper} from "../model/KeeperModel";
+import axios from "axios";
 import {Animal} from "../model/AnimalModel";
 
 type Props = {
-    keeper: Keeper[]
     animals: Animal
     getAllAnimals: () => void;
-
 }
 
 function DoneButton(props: Props) {
@@ -30,7 +27,7 @@ function DoneButton(props: Props) {
 
     return (
         <div>
-            <button onClick={feedingDone}>
+            <button className="button" onClick={feedingDone}>
                 Done
             </button>
         </div>

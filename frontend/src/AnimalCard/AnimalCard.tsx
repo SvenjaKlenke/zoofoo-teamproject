@@ -4,6 +4,7 @@ import {Animal} from "../model/AnimalModel";
 import {useNavigate} from "react-router-dom";
 import {Keeper} from "../model/KeeperModel";
 import DropdownMenu from "../element/KeeperDropDown";
+import DoneButton from "../element/DoneButton";
 
 
 type Props = {
@@ -31,6 +32,8 @@ function AnimalCard(props: Props) {
                     <DropdownMenu keeper={props.keeper} animals={props.animals}
                                   getAllAnimals={props.getAllAnimals}/> : <></>
                 }
+                {props.animals.feedStatus === "DOING" ?
+                    <DoneButton animals={props.animals} getAllAnimals={props.getAllAnimals}/> : <></>}
             </div>
         </div>
     );
