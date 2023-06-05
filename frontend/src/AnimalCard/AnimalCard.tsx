@@ -24,9 +24,13 @@ function AnimalCard(props: Props) {
             <h2>{props.animals.species}</h2>
             <img className="animalPic" src={props.animals.pictureOfAnimal} alt={"animal"}></img>
             <p>Amount: {props.animals.numberOfAnimals}</p>
+            {props.animals.feedStatus === "DOING" ? <p>Keeper: {props.animals.animalKeeper}</p> : <></>}
             <div className="buttonContainer">
                 <button className="button" onClick={onClickHandlerForDetails}>DETAILS</button>
-                <DropdownMenu keeper={props.keeper} animals={props.animals} getAllAnimals={props.getAllAnimals}/>
+                {props.animals.feedStatus === "OPEN" ?
+                    <DropdownMenu keeper={props.keeper} animals={props.animals}
+                                  getAllAnimals={props.getAllAnimals}/> : <></>
+                }
             </div>
         </div>
     );
