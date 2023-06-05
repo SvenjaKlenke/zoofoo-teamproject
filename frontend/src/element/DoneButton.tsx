@@ -3,23 +3,23 @@ import axios from "axios";
 import {Animal} from "../model/AnimalModel";
 
 type Props = {
-    animals: Animal
+    animal: Animal
     getAllAnimals: () => void;
 }
 
 function DoneButton(props: Props) {
 
     function feedingDone() {
-        axios.put("/api/animal/" + props.animals.id, {
-            id: props.animals.id,
-            species: props.animals.species,
-            food: props.animals.food,
-            foodAmount: props.animals.foodAmount,
-            dayToFeed: props.animals.dayToFeed,
-            numberOfAnimals: props.animals.numberOfAnimals,
+        axios.put("/api/animal/" + props.animal.id, {
+            id: props.animal.id,
+            species: props.animal.species,
+            food: props.animal.food,
+            foodAmount: props.animal.foodAmount,
+            dayToFeed: props.animal.dayToFeed,
+            numberOfAnimals: props.animal.numberOfAnimals,
             feedStatus: "DONE",
-            animalKeeper: props.animals.animalKeeper,
-            pictureOfAnimal: props.animals.pictureOfAnimal
+            animalKeeper: props.animal.animalKeeper,
+            pictureOfAnimal: props.animal.pictureOfAnimal
         }).then(() => {
             props.getAllAnimals()
         })

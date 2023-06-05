@@ -28,8 +28,8 @@ function AnimalGallery(props: Props) {
         <div className="Gallery-AnimalCard">
             <div className="card">
                 <h2>AllAnimals</h2>
-                {props.animalsAll.map(animal => <AnimalCard key={animal.id} animals={animal}
-                                                            keeper={keeper} getAllAnimals={props.getAllAnimals}/>)}
+                {props.animalsAll.map(animal => <AnimalCard key={animal.id} animal={animal}
+                                                            keepers={keeper} getAllAnimals={props.getAllAnimals}/>)}
             </div>
         </div>
     );

@@ -4,8 +4,8 @@ import {Animal} from "../model/AnimalModel";
 import axios from "axios";
 
 type Props = {
-    keeper: Keeper[]
-    animals: Animal
+    keepers: Keeper[]
+    animal: Animal
     getAllAnimals: () => void;
 
 }
@@ -14,16 +14,16 @@ function DropdownMenu(props: Props) {
 
     function changeStatusBySelectKeeper(event: ChangeEvent<HTMLSelectElement>) {
         const selectedKeeper = event.target.value;
-        axios.put("/api/animal/" + props.animals.id, {
-            id: props.animals.id,
-            species: props.animals.species,
-            food: props.animals.food,
-            foodAmount: props.animals.foodAmount,
-            dayToFeed: props.animals.dayToFeed,
-            numberOfAnimals: props.animals.numberOfAnimals,
+        axios.put("/api/animal/" + props.animal.id, {
+            id: props.animal.id,
+            species: props.animal.species,
+            food: props.animal.food,
+            foodAmount: props.animal.foodAmount,
+            dayToFeed: props.animal.dayToFeed,
+            numberOfAnimals: props.animal.numberOfAnimals,
             feedStatus: "DOING",
             animalKeeper: selectedKeeper,
-            pictureOfAnimal: props.animals.pictureOfAnimal
+            pictureOfAnimal: props.animal.pictureOfAnimal
         }).then(() => {
             props.getAllAnimals()
         })
@@ -33,7 +33,7 @@ function DropdownMenu(props: Props) {
     return (
         <select className="button" onChange={changeStatusBySelectKeeper}>
             <option>select Keeper</option>
-            {props.keeper.map(keepers => (
+            {props.keepers.map(keepers => (
                 <option key={keepers.id} value={keepers.username}>
                     {keepers.username}
                 </option>

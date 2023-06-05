@@ -16,8 +16,8 @@ function ToFeedGallery(props: Props) {
         <div className="Gallery-AnimalCard">
             <div className="card">
                 <h2>ToFeed</h2>
-                {props.animalsOpen.map(animal => <AnimalCard key={animal.id} animals={animal}
-                                                             keeper={keeper} getAllAnimals={props.getAllAnimals}/>)}
+                {props.animalsOpen.map(animal => <AnimalCard key={animal.id} animal={animal}
+                                                             keepers={keeper} getAllAnimals={props.getAllAnimals}/>)}
             </div>
         </div>
     );

@@ -17,8 +17,8 @@ function FedGallery(props:Props) {
         <div className="Gallery-AnimalCard">
             <div className="card">
                 <h2>Fed</h2>
-                {props.animalsFed.map(animal => <AnimalCard key={animal.id} animals={animal}
-                                                            keeper={keeper} getAllAnimals={props.getAllAnimals}/>)}
+                {props.animalsFed.map(animal => <AnimalCard key={animal.id} animal={animal}
+                                                            keepers={keeper} getAllAnimals={props.getAllAnimals}/>)}
             </div>
         </div>
     );

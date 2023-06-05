@@ -8,8 +8,8 @@ import DoneButton from "../element/DoneButton";
 
 
 type Props = {
-    animals: Animal
-    keeper: Keeper[]
+    animal: Animal
+    keepers: Keeper[]
     getAllAnimals: () => void;
 }
 
@@ -17,23 +17,23 @@ function AnimalCard(props: Props) {
     const navigate = useNavigate();
 
     function onClickHandlerForDetails() {
-        navigate("/animal/" + props.animals.id)
+        navigate("/animal/" + props.animal.id)
     }
 
     return (
         <div className="animalCard">
-            <h2>{props.animals.species}</h2>
-            <img className="animalPic" src={props.animals.pictureOfAnimal} alt={"animal"}></img>
-            <p>Amount: {props.animals.numberOfAnimals}</p>
-            {props.animals.feedStatus === "DOING" ? <p>Keeper: {props.animals.animalKeeper}</p> : <></>}
+            <h2>{props.animal.species}</h2>
+            <img className="animalPic" src={props.animal.pictureOfAnimal} alt={"animal"}></img>
+            <p>Amount: {props.animal.numberOfAnimals}</p>
+            {props.animal.feedStatus === "DOING" ? <p>Keeper: {props.animal.animalKeeper}</p> : <></>}
             <div className="buttonContainer">
                 <button className="button" onClick={onClickHandlerForDetails}>DETAILS</button>
-                {props.animals.feedStatus === "OPEN" ?
-                    <DropdownMenu keeper={props.keeper} animals={props.animals}
+                {props.animal.feedStatus === "OPEN" ?
+                    <DropdownMenu keepers={props.keepers} animal={props.animal}
                                   getAllAnimals={props.getAllAnimals}/> : <></>
                 }
-                {props.animals.feedStatus === "DOING" ?
-                    <DoneButton animals={props.animals} getAllAnimals={props.getAllAnimals}/> : <></>}
+                {props.animal.feedStatus === "DOING" ?
+                    <DoneButton animal={props.animal} getAllAnimals={props.getAllAnimals}/> : <></>}
             </div>
         </div>
     );
