@@ -6,6 +6,7 @@ import useKeepers from "../hook/useKeepers";
 
 type Props = {
     animalsOpen: Animal[];
+    getAllAnimals: () => void;
 };
 
 function ToFeedGallery(props: Props) {
@@ -16,7 +17,7 @@ function ToFeedGallery(props: Props) {
             <div className="card">
                 <h2>ToFeed</h2>
                 {props.animalsOpen.map(animal => <AnimalCard key={animal.id} animals={animal}
-                                                             keeper={keeper}/>)}
+                                                             keeper={keeper} getAllAnimals={props.getAllAnimals}/>)}
             </div>
         </div>
     );

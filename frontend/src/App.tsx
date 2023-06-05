@@ -58,10 +58,11 @@ function App() {
                 <Route element={<ProtectedRoutes user={user} />}>
                         <Route path="/" element={(
                             <div className="gallery-container">
-                                <AnimalGallery animalsAll={feedingNone} getAllAnimals={getAllAnimals} dayOfTheWeek={dayOfTheWeek} />
-                                <ToFeedGallery animalsOpen={feedingOpen} />
-                                <FeedingGallery animalsFeeding={feedingDoing} />
-                                <FedGallery animalsFed={feedingDone} />
+                                <AnimalGallery animalsAll={feedingNone} getAllAnimals={getAllAnimals}
+                                               dayOfTheWeek={dayOfTheWeek}/>
+                                <ToFeedGallery animalsOpen={feedingOpen} getAllAnimals={getAllAnimals}/>
+                                <FeedingGallery animalsFeeding={feedingDoing} getAllAnimals={getAllAnimals}/>
+                                <FedGallery animalsFed={feedingDone} getAllAnimals={getAllAnimals}/>
                             </div>
                         )} />
                         <Route path="animal/:id" element={<AnimalCardDetails animals={animalList} />} />

@@ -23,7 +23,7 @@ function AnimalGallery(props: Props) {
             <div className="card">
                 <h2>AllAnimals</h2>
                 {props.animalsAll.map(animal => <AnimalCard key={animal.id} animals={animal}
-                                                            keeper={keeper}/>)}
+                                                            keeper={keeper} getAllAnimals={props.getAllAnimals}/>)}
             </div>
         </div>
     );

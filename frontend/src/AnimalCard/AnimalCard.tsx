@@ -9,6 +9,7 @@ import DropdownMenu from "../element/KeeperDropDown";
 type Props = {
     animals: Animal
     keeper: Keeper[]
+    getAllAnimals: () => void;
 }
 
 function AnimalCard(props: Props) {
@@ -25,7 +26,7 @@ function AnimalCard(props: Props) {
             <p>Amount: {props.animals.numberOfAnimals}</p>
             <div className="buttonContainer">
                 <button className="button" onClick={onClickHandlerForDetails}>DETAILS</button>
-                <DropdownMenu keeper={props.keeper}/>
+                <DropdownMenu keeper={props.keeper} animals={props.animals} getAllAnimals={props.getAllAnimals}/>
             </div>
         </div>
     );

@@ -6,6 +6,7 @@ import useKeepers from "../hook/useKeepers";
 
 type Props = {
     animalsFed: Animal[]
+    getAllAnimals: () => void;
 };
 
 function FedGallery(props:Props) {
@@ -17,7 +18,7 @@ function FedGallery(props:Props) {
             <div className="card">
                 <h2>Fed</h2>
                 {props.animalsFed.map(animal => <AnimalCard key={animal.id} animals={animal}
-                                                            keeper={keeper}/>)}
+                                                            keeper={keeper} getAllAnimals={props.getAllAnimals}/>)}
             </div>
         </div>
     );
