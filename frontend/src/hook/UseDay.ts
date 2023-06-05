@@ -10,7 +10,9 @@ export default function useDay(props: Props) {
     const [dayOfTheWeek, setDayOfTheWeek] = useState<string>(props.weekdays[0])
     const [animalList, setAnimalList] = useState<Animal[]>([])
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(getAllAnimals, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(changeStatusOfAnimal, [])
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(changeStatusOfAnimal, [dayOfTheWeek])
