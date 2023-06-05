@@ -12,7 +12,6 @@ import useDay from "./hook/UseDay";
 import Weather from "./weather/Weather";
 import {WeatherModel} from "./model/WeatherModel";
 import axios from "axios";
-import Modal from "./element/Modal";
 import ToFeedGallery from "./AnimalGallery/ToFeedGallery";
 import FedGallery from "./AnimalGallery/FedGallery";
 import FeedingGallery from "./AnimalGallery/FeedingGallery";
@@ -50,8 +49,6 @@ function App() {
             <header className="App-header">
                 <img id="logo" src={logo} alt="logo"/>
                 <DayBar animals={animalList} nextDay={goToNextDay} prevDay={goToPreviousDay} currentDay={dayOfTheWeek}/>
-                <button className={"openModalBtn"} onClick={()=> {setOpenModal(true);}}>New Animal</button>
-                {openModal && <Modal closeModal={setOpenModal} weekdays={weekdays}/>}
                 <ul>
                     <li>Feeding</li>
                     <li>Order</li>

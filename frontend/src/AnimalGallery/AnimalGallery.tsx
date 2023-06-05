@@ -12,15 +12,14 @@ type Props = {
 }
 function AnimalGallery(props: Props) {
     const {getAllKeepers, keeper} = useKeepers()
-
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         props.changeStatusOfAnimal()
     }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         props.getAllAnimals()
     }, [props.dayOfTheWeek])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(getAllKeepers, [])
 
 
