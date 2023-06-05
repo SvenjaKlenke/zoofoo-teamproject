@@ -22,7 +22,14 @@ function App() {
 
     const weekdays: string[] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     const {login, user} = useKeeper()
-    const {getAllAnimals,dayOfTheWeek, goToPreviousDay,goToNextDay,animalList} = useDay({weekdays});
+    const {
+        getAllAnimals,
+        dayOfTheWeek,
+        goToPreviousDay,
+        goToNextDay,
+        animalList,
+        changeStatusOfAnimal
+    } = useDay({weekdays});
     const [temperature, setTemperature] = useState<WeatherModel>({temp: "null"})
     const[openModal, setOpenModal] = useState<boolean>(false);
     const feedingNone = animalList.filter(currentAnimal => currentAnimal.feedStatus === "NONE")
@@ -59,7 +66,7 @@ function App() {
                         <Route path="/" element={(
                             <div className="gallery-container">
                                 <AnimalGallery animalsAll={feedingNone} getAllAnimals={getAllAnimals}
-                                               dayOfTheWeek={dayOfTheWeek}/>
+                                               dayOfTheWeek={dayOfTheWeek} changeStatusOfAnimal={changeStatusOfAnimal}/>
                                 <ToFeedGallery animalsOpen={feedingOpen} getAllAnimals={getAllAnimals}/>
                                 <FeedingGallery animalsFeeding={feedingDoing} getAllAnimals={getAllAnimals}/>
                                 <FedGallery animalsFed={feedingDone} getAllAnimals={getAllAnimals}/>

@@ -11,8 +11,6 @@ export default function useDay(props: Props) {
     const [animalList, setAnimalList] = useState<Animal[]>([])
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(changeStatusOfAnimal,[])
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(changeStatusOfAnimal,[dayOfTheWeek])
 
     function getAllAnimals() {
@@ -46,6 +44,7 @@ export default function useDay(props: Props) {
 
     function changeStatusOfAnimal() {
         animalList.forEach(animal => {
+            console.log(dayOfTheWeek)
             animal.feedStatus = (animal.dayToFeed === dayOfTheWeek) ? "OPEN" : "NONE";
             axios.put("/api/animal/" + animal.id, {
                 id: animal.id,
@@ -64,5 +63,5 @@ export default function useDay(props: Props) {
     }
 
 
-    return {dayOfTheWeek, goToPreviousDay, goToNextDay, getAllAnimals, animalList}
+    return {dayOfTheWeek, goToPreviousDay, goToNextDay, getAllAnimals, animalList, changeStatusOfAnimal}
 }

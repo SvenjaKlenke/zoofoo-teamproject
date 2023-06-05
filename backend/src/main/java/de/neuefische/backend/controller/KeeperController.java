@@ -33,7 +33,7 @@ public class KeeperController {
     }
 
     @GetMapping("")
-    public List<Keeper> gettAllKeeper() {
+    public List<Keeper> getAllKeeper() {
         return serviceKeeper.getAllKeeper();
     }
 }
