@@ -5,7 +5,7 @@
 
 .detailsCard {
     width: 300px;
-    background-color: #f1f1f1;
+    background-color: darkolivegreen;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px;
@@ -13,6 +13,7 @@
     margin-left: auto;
     margin-top: 10px;
     text-align: center;
+    color: lightgray;
 }
 
 .detailsCard h1 {
@@ -22,6 +23,17 @@
 
 .detailsCard p {
     margin-bottom: 8px;
+}
+
+.link {
+    text-decoration: none;
+    font-size: 25px;
+    color: #333333;
+    font-weight: bold;
+}
+
+.link:hover {
+    color: lightgray;
 }
 
 .detailsContainer img {
