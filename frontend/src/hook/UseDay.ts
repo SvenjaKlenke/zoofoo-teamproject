@@ -12,12 +12,11 @@ export default function useDay(props: Props) {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(changeStatusOfAnimal, [dayOfTheWeek])
-
     function getAllAnimals() {
         axios.get("/api/animal")
             .then((response) => {
                 setAnimalList(response.data)
-            })
+            }).catch((e) => console.log(e.message))
     }
 
     function goToPreviousDay() {
