@@ -23,6 +23,12 @@ public class ServiceKeeper implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("User " + username + " not found"));
         return new User(keeper.getUsername(), keeper.getPassword(), List.of());
     }
+
+    public List<Keeper> getAllKeeper() {
+        return repoKeeper.findAll();
+    }
+
+
 }
 
    

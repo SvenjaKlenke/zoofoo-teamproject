@@ -11,15 +11,12 @@ export default function useDay(props: Props) {
     const [animalList, setAnimalList] = useState<Animal[]>([])
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(changeStatusOfAnimal,[])
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(changeStatusOfAnimal,[dayOfTheWeek])
-
+    useEffect(changeStatusOfAnimal, [dayOfTheWeek])
     function getAllAnimals() {
         axios.get("/api/animal")
             .then((response) => {
                 setAnimalList(response.data)
-            })
+            }).catch((e) => console.log(e.message))
     }
 
     function goToPreviousDay() {
@@ -46,7 +43,8 @@ export default function useDay(props: Props) {
 
     function changeStatusOfAnimal() {
         animalList.forEach(animal => {
-            animal.feedStatus = (animal.dayToFeed === dayOfTheWeek) ? "OPEN" : "NONE";
+            console.log(dayOfTheWeek)
+            animal.feedStatus = animal.dayToFeed === dayOfTheWeek ? "OPEN" : "NONE";
             axios.put("/api/animal/" + animal.id, {
                 id: animal.id,
                 species: animal.species,
@@ -57,12 +55,11 @@ export default function useDay(props: Props) {
                 feedStatus: animal.feedStatus,
                 animalKeeper: animal.animalKeeper,
                 pictureOfAnimal: animal.pictureOfAnimal
-            }).then(() => {
-                getAllAnimals()
             })
-        })
+        });
+        getAllAnimals()
     }
 
 
-    return {dayOfTheWeek, goToPreviousDay, goToNextDay, getAllAnimals, animalList}
+    return {dayOfTheWeek, goToPreviousDay, goToNextDay, getAllAnimals, animalList, changeStatusOfAnimal}
 }

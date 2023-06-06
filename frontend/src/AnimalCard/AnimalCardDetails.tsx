@@ -28,7 +28,7 @@ function AnimalCardDetails(props: Props) {
                 <p>Food amount: {actualAnimal?.foodAmount}</p>
                 <br/>
                 <br/>
-                <Link to={"/"}>back</Link>
+                <Link className="link" to={"/"}>back</Link>
             </div>
         </div>
     );
